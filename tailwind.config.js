@@ -88,6 +88,12 @@ module.exports = {
           { lineHeight: '1.25', letterSpacing: '0.125em', fontWeight: '500' },
         ],
       },
+      letterSpacing: {
+        2: '0.1875em',
+      },
+      borderRadius: {
+        xs: '3px',
+      },
     },
   },
   plugins: [],
