@@ -89,27 +89,23 @@ const HeroSection = () => {
       <div className='absolute z-0 right-0 top-0 left-0 bottom-0 w-full h-[100vh] overflow-hidden'>
         <div className='absolute z-10 right-0 top-0 left-0 bottom-0 bg-gradient-to-b from-[rgba(21,_21,_21,_0.4)] from-30% to-black to-50%'></div>
         <div
-          className='absolute right-0 top-0 left-0 bottom-0 h-[50vh] min-h-[360px] bg-[50%_50%] bg-cover bg-no-repeat bg-[url("/demo/tomasz-zagorski-1396867-unsplash.jpg")]'
+          className='absolute right-0 top-0 left-0 bottom-0 h-[50vh] min-h-[360px] bg-center bg-cover bg-no-repeat bg-[url("/demo/tomasz-zagorski-1396867-unsplash.jpg")] transition-all ease-linear duration-0'
           style={{
-            willChange: 'transform, opacity',
-            transform: `translate3d(0px, ${translateY}%, 0px) scale3d(${scale}, ${scale}, 1)`,
-            transformStyle: 'preserve-3d',
+            transform: `translateY(${translateY}%) scale(${scale}, ${scale})`,
             opacity: `${opacity}`,
           }}></div>
       </div>
 
       <div
         ref={heroContent}
-        className='relative z-10 px-2 pt-[120px] pb-20'
+        className='relative z-10 px-2 pt-[120px] pb-20 transition-all ease-linear duration-0'
         style={{
-          willChange: 'transform, opacity',
-          transform: `translate3d(0px, ${heroContentTranslateY}vh, 0px) scale3d(${heroContentScale}, ${heroContentScale}, 1)`,
-          transformStyle: 'preserve-3d',
+          transform: `translateY(${heroContentTranslateY}vh) scale(${heroContentScale}, ${heroContentScale})`,
           opacity: `${heroContentOpacity}`,
         }}>
         <div className='px-2 text-center'>
           <hgroup>
-            <p className='text-[11px] leading-4 font-semibold tracking-[0.1875em] mb-4'>
+            <p className='text-[11px] leading-4 font-semibold tracking-2 mb-4'>
               INTRODUCING OLOFOFO
             </p>
             <h1 className='text-h2 mt-2 mb-6'>News, Trends & Gossips</h1>
