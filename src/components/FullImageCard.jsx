@@ -98,7 +98,7 @@ const FullImageCard = () => {
               }}></div>
 
             {/* card info */}
-            <div className='absolute bottom-0 p-8 h-60'>
+            <div className='absolute bottom-0 left-0 right-0 p-8 h-60'>
               <span className='inline-block mb-4 px-[6px] py-[2px] border border-grey-400 text-[11px] text-white leading-[16px] font-medium tracking-[1px] rounded-[3px] uppercase'>
                 {'Category'}
               </span>
