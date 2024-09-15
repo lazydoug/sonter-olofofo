@@ -8,7 +8,7 @@ export const FilledButton = ({ label, onClick, width, icon, darkMode }) => {
 
   return (
     <button
-      className={`${buttonWidth} ${buttonMode} pl-[18px] pr-4 pt-2 pb-[7px] text-btn-sm rounded-[3px] hover:rounded-none transition-all duration-[400ms] md:text-btn-md lg:text-btn-lg md:px-6 md:pb-3 md:pt-[15px] lg:px-7 lg:pt-[17px] lg:pb-[15px]`}
+      className={`${buttonWidth} ${buttonMode} pl-[18px] pr-4 pt-2 pb-[7px] text-btn-sm uppercase rounded-[3px] hover:rounded-none transition-all duration-[400ms] md:text-btn-md lg:text-btn-lg md:px-6 md:pb-3 md:pt-[15px] lg:px-7 lg:pt-[17px] lg:pb-[15px]`}
       onClick={() => onClick}>
       {icon}
       {label}
@@ -24,7 +24,7 @@ export const OutlinedButton = ({ label, onClick, width, icon, darkMode }) => {
 
   return (
     <button
-      className={`${buttonWidth} ${buttonMode} pl-[18px] pr-4 pt-2 pb-[7px] text-btn-sm border rounded-[3px] hover:rounded-none transition-all duration-[400ms] md:text-btn-md lg:text-btn-lg md:px-6 md:pb-3 md:pt-[15px] lg:px-7 lg:pt-[17px] lg:pb-[15px]`}
+      className={`${buttonWidth} ${buttonMode} pl-[18px] pr-4 pt-2 pb-[7px] text-btn-sm uppercase border rounded-[3px] hover:rounded-none transition-all duration-[400ms] md:text-btn-md lg:text-btn-lg md:px-6 md:pb-3 md:pt-[15px] lg:px-7 lg:pt-[17px] lg:pb-[15px]`}
       onClick={() => onClick}>
       {icon}
       {label}
