@@ -45,7 +45,7 @@ module.exports = {
 
         h4: [
           '20px',
-          { lineHeight: '1.4', letterSpacing: '0', fontWeight: '500' },
+          { lineHeight: '28px', letterSpacing: '0', fontWeight: '500' },
         ],
 
         h5: [
@@ -55,7 +55,7 @@ module.exports = {
 
         h6: [
           '14px',
-          { lineHeight: '1.43', letterSpacing: '0', fontWeight: '500' },
+          { lineHeight: '20px', letterSpacing: '0', fontWeight: '500' },
         ],
 
         sm: [
@@ -65,7 +65,7 @@ module.exports = {
 
         md: [
           '14px',
-          { lineHeight: '1.71', letterSpacing: '0', fontWeight: '400' },
+          { lineHeight: '24px', letterSpacing: '0', fontWeight: '400' },
         ],
 
         lg: [
@@ -85,7 +85,7 @@ module.exports = {
 
         'btn-lg': [
           '16px',
-          { lineHeight: '1.25', letterSpacing: '0.125em', fontWeight: '500' },
+          { lineHeight: '20px', letterSpacing: '0.125em', fontWeight: '500' },
         ],
       },
       letterSpacing: {

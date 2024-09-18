@@ -1,6 +1,8 @@
 import { Bricolage_Grotesque } from 'next/font/google'
 import './globals.css'
 
+import Footer from '@/components/common/Footer'
+
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
 })
@@ -13,7 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={`${bricolageGrotesque.className} bg-black scroll-smooth`}>{children}</body>
+      <body
+        className={`${bricolageGrotesque.className} bg-black scroll-smooth min-w-80`}>
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }
