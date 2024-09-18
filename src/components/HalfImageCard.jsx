@@ -5,38 +5,37 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const HalfImageCard = () => {
+const HalfImageCard = ({
+  title,
+  thumbnail,
+  category,
+  date,
+  readTime,
+  isFeatured,
+  style,
+}) => {
   const [imageScale, setImageScale] = useState(1),
     [dividerWidth, setDividerWidth] = useState('0'),
     [featuredTagtWidth, setFeaturedTagWidth] = useState('32px'),
     [featuredTextWidth, setFeaturedTextWidth] = useState('0px'),
     [featuredTextOpacity, setFeaturedTextOpacity] = useState(0)
 
-  const isFeatured = true,
-    bg = '/demo/andrew-neel-1047563-unsplash.jpg'
-
   //Refs
   const halfImageCard = useRef(null),
-    featuredTag = useRef(null),
-    divider = useRef(null)
+    featuredTag = useRef(null)
 
   useEffect(() => {
     const card = halfImageCard.current
     const featured = featuredTag.current
-    const hr = divider.current
 
     const handleMouseEnterCard = () => {
       setImageScale(1.05)
       setDividerWidth('100%')
-      // hr.classList.toggle('w-full')
-      // hr.classList.toggle('opacity-0')
     }
 
     const handleMouseLeaveCard = () => {
       setImageScale(1)
-      setDividerWidth("0")
-      // hr.classList.toggle('w-full')
-      // hr.classList.toggle('opacity-100')
+      setDividerWidth('0')
     }
 
     const handleMouseEnter = () => {
@@ -53,19 +52,26 @@ const HalfImageCard = () => {
 
     card.addEventListener('mouseenter', handleMouseEnterCard)
     card.addEventListener('mouseleave', handleMouseLeaveCard)
-    featured.addEventListener('mouseenter', handleMouseEnter)
-    featured.addEventListener('mouseleave', handleMouseLeave)
+
+    // Attach event listeners for the featured tag (if it exists)
+    if (featured) {
+      featured.addEventListener('mouseenter', handleMouseEnter)
+      featured.addEventListener('mouseleave', handleMouseLeave)
+    }
 
     return () => {
       card.removeEventListener('mouseenter', handleMouseEnterCard)
       card.removeEventListener('mouseleave', handleMouseLeaveCard)
-      featured.removeEventListener('mouseenter', handleMouseEnter)
-      featured.removeEventListener('mouseleave', handleMouseLeave)
+
+      if (featured) {
+        featured.removeEventListener('mouseenter', handleMouseEnter)
+        featured.removeEventListener('mouseleave', handleMouseLeave)
+      }
     }
-  }, [featuredTextOpacity, featuredTextWidth])
+  }, [])
 
   return (
-    <div ref={halfImageCard} className='cursor-pointer'>
+    <div ref={halfImageCard} className={style}>
       <Link href={''}>
         <div className='relative'>
           {/* featured tag */}
@@ -89,30 +95,31 @@ const HalfImageCard = () => {
           )}
 
           {/* card image */}
-          <div className='h-[64vw] overflow-hidden'>
+          <div className='h-[64vw] overflow-hidden min-[479px]:h-[33vw] min-[991px]:h-64'>
             <div
               className='h-full bg-cover bg-center transition-transform ease-in-out duration-500'
               style={{
-                backgroundImage: `url(${bg})`,
+                backgroundImage: `url(${thumbnail})`,
                 transform: `scale(${imageScale}, ${imageScale})`,
               }}></div>
           </div>
 
           {/* card info */}
-          <div className='p-8 bg-white'>
-            <span className='inline-block mb-4 px-[6px] py-[2px] border border-grey-400 text-[11px] text-black leading-[16px] font-medium tracking-[1px] rounded-[3px] uppercase'>
-              {'Category'}
+          <div className='p-6 flex flex-col bg-white min-[479px]:h-60'>
+            <span className='w-fit mb-4 px-[6px] py-[2px] border border-grey-400 text-[11px] text-black leading-[16px] font-medium tracking-[1px] rounded-[3px] uppercase'>
+              {category || 'Category'}
             </span>
 
-            <h4 className='text-h4 text-black mb-5'>{'Title'}</h4>
+            <h4 className='text-h4 text-black mb-5 line-clamp-3'>
+              {title || 'Title'}
+            </h4>
 
-            <div className='flex justify-between items-end'>
+            <div className='mt-auto flex gap-5 justify-between items-end'>
               <div className='flex flex-col gap-[2px]'>
                 <span className='text-btn-sm text-black font-semibold tracking-2'>
                   READ MORE
                 </span>
                 <hr
-                  ref={divider}
                   className='inline-block h-[2px] bg-primary border-none transition-all ease-linear duration-500'
                   style={{
                     width: `${dividerWidth}`,
@@ -120,9 +127,9 @@ const HalfImageCard = () => {
                 />
               </div>
               <div className='flex flex-col items-end text-btn-sm text-grey-300'>
-                <span>{'Read time'}</span>
-                <time dateTime='' className=''>
-                  {'Date'}
+                <span>{readTime || 'Read time'}</span>
+                <time dateTime='' className='text-right'>
+                  {date || 'Date'}
                 </time>
               </div>
             </div>

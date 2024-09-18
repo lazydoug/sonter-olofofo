@@ -5,38 +5,37 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const FullImageCard = () => {
+const FullImageCard = ({
+  title,
+  thumbnail,
+  category,
+  date,
+  readTime,
+  isFeatured,
+  style,
+}) => {
   const [imageScale, setImageScale] = useState(1),
     [dividerWidth, setDividerWidth] = useState('0'),
     [featuredTagtWidth, setFeaturedTagWidth] = useState('32px'),
     [featuredTextWidth, setFeaturedTextWidth] = useState('0px'),
     [featuredTextOpacity, setFeaturedTextOpacity] = useState(0)
 
-  const isFeatured = true,
-    bg = '/demo/claudia-crespo-1190783-unsplash.jpg'
-
   //Refs
   const fullImageCard = useRef(null),
-    featuredTag = useRef(null),
-    divider = useRef(null)
+    featuredTag = useRef(null)
 
   useEffect(() => {
     const card = fullImageCard.current
     const featured = featuredTag.current
-    const hr = divider.current
 
     const handleMouseEnterCard = () => {
       setImageScale(1.05)
       setDividerWidth('100%')
-      // hr.classList.toggle('w-full')
-      // hr.classList.toggle('opacity-0')
     }
 
     const handleMouseLeaveCard = () => {
       setImageScale(1)
       setDividerWidth('0')
-      // hr.classList.toggle('w-full')
-      // hr.classList.toggle('opacity-100')
     }
 
     const handleMouseEnter = () => {
@@ -53,21 +52,28 @@ const FullImageCard = () => {
 
     card.addEventListener('mouseenter', handleMouseEnterCard)
     card.addEventListener('mouseleave', handleMouseLeaveCard)
-    featured.addEventListener('mouseenter', handleMouseEnter)
-    featured.addEventListener('mouseleave', handleMouseLeave)
+
+    // Attach event listeners for the featured tag (if it exists)
+    if (featured) {
+      featured.addEventListener('mouseenter', handleMouseEnter)
+      featured.addEventListener('mouseleave', handleMouseLeave)
+    }
 
     return () => {
       card.removeEventListener('mouseenter', handleMouseEnterCard)
       card.removeEventListener('mouseleave', handleMouseLeaveCard)
-      featured.removeEventListener('mouseenter', handleMouseEnter)
-      featured.removeEventListener('mouseleave', handleMouseLeave)
+
+      if (featured) {
+        featured.removeEventListener('mouseenter', handleMouseEnter)
+        featured.removeEventListener('mouseleave', handleMouseLeave)
+      }
     }
-  }, [featuredTextOpacity, featuredTextWidth])
+  }, [])
 
   return (
-    <div ref={fullImageCard} className='cursor-pointer'>
+    <div ref={fullImageCard} className={style}>
       <Link href={''}>
-        <div className='relative min-h-[400px]'>
+        <div className='relative h-[90vw] min-h-[400px] min-[479px]:h-full min-[479px]:min-h-[56vw] min-[991px]:min-h-[400px]'>
           {/* featured tag */}
           {isFeatured && (
             <div
@@ -93,25 +99,26 @@ const FullImageCard = () => {
             <div
               className='h-full bg-cover bg-center transition-transform ease-in-out duration-500'
               style={{
-                backgroundImage: `linear-gradient(180deg, rgba(21, 21, 21, 0) 30%, rgba(21, 21, 21, 0.8)), url(${bg})`,
+                backgroundImage: `linear-gradient(180deg, rgba(21, 21, 21, 0) 30%, rgba(21, 21, 21, 0.8)), url(${thumbnail})`,
                 transform: `scale(${imageScale}, ${imageScale})`,
               }}></div>
 
             {/* card info */}
-            <div className='absolute bottom-0 left-0 right-0 p-8 h-60'>
-              <span className='inline-block mb-4 px-[6px] py-[2px] border border-grey-400 text-[11px] text-white leading-[16px] font-medium tracking-[1px] rounded-[3px] uppercase'>
-                {'Category'}
+            <div className='p-6 absolute flex flex-col bottom-0 left-0 right-0 min-[479px]:h-60'>
+              <span className='w-fit mb-4 px-[6px] py-[2px] border border-grey-400 text-[11px] text-white leading-[16px] font-medium tracking-[1px] rounded-[3px] uppercase'>
+                {category || 'Category'}
               </span>
 
-              <h4 className='text-h4 text-white line-clamp-3'>{'Title'}</h4>
+              <h4 className='text-h4 text-white line-clamp-3 mb-5'>
+                {title || 'Title'}
+              </h4>
 
-              <div className='absolute bottom-8 left-8 right-8 flex justify-between items-end'>
+              <div className='mt-auto flex gap-5 justify-between items-end'>
                 <div className='flex flex-col gap-[2px]'>
                   <span className='text-btn-sm text-white font-semibold tracking-2'>
                     READ MORE
                   </span>
                   <hr
-                    ref={divider}
                     className='inline-block h-[2px] bg-primary border-none transition-all ease-linear duration-500'
                     style={{
                       width: `${dividerWidth}`,
@@ -120,9 +127,9 @@ const FullImageCard = () => {
                 </div>
 
                 <div className='flex flex-col items-end text-btn-sm text-white'>
-                  <span>{'Read time'}</span>
-                  <time dateTime='' className=''>
-                    {'Date'}
+                  <span>{readTime || 'Read time'}</span>
+                  <time dateTime='' className='text-right'>
+                    {date || 'Date'}
                   </time>
                 </div>
               </div>

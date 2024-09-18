@@ -86,10 +86,10 @@ const HeroSection = () => {
 
   return (
     <section>
-      <div className='absolute z-0 right-0 top-0 left-0 bottom-0 w-full h-[100vh] overflow-hidden'>
+      <div className='absolute z-0 right-0 top-0 left-0 bottom-0 min-w-80 w-full h-[100vh] overflow-hidden'>
         <div className='absolute z-10 right-0 top-0 left-0 bottom-0 bg-gradient-to-b from-[rgba(21,_21,_21,_0.4)] from-30% to-black to-50%'></div>
         <div
-          className='absolute right-0 top-0 left-0 bottom-0 h-[50vh] min-h-[360px] bg-center bg-cover bg-no-repeat bg-[url("/demo/tomasz-zagorski-1396867-unsplash.jpg")] transition-all ease-linear duration-0'
+          className='absolute right-0 top-0 left-0 bottom-0 h-[50vh] min-h-[360px] bg-center bg-cover bg-no-repeat bg-[url("/demo/tomasz-zagorski-1396867-unsplash.jpg")] transition-all ease-[ease] duration-0'
           style={{
             transform: `translateY(${translateY}%) scale(${scale}, ${scale})`,
             opacity: `${opacity}`,
@@ -98,20 +98,20 @@ const HeroSection = () => {
 
       <div
         ref={heroContent}
-        className='relative z-10 px-2 pt-[120px] pb-20 transition-all ease-linear duration-0'
+        className='relative z-10 px-4 pt-[120px] pb-20 transition-all ease-[ease] duration-0 min-[767px]:pt-40 min-[767px]:pb-28 min-[991px]:min-h-[520px] min-[991px]:pt-[200px] min-[991px]:pb-40'
         style={{
           transform: `translateY(${heroContentTranslateY}vh) scale(${heroContentScale}, ${heroContentScale})`,
           opacity: `${heroContentOpacity}`,
         }}>
-        <div className='px-2 text-center'>
+        <div className='text-center'>
           <hgroup>
-            <p className='text-[11px] leading-4 font-semibold tracking-2 mb-4'>
+            <p className='text-[11px] leading-4 font-semibold tracking-[3px] mb-4'>
               INTRODUCING OLOFOFO
             </p>
-            <h1 className='text-h2 mt-2 mb-6'>News, Trends & Gossips</h1>
+            <h1 className='text-h2 mt-2 mb-6 min-[767px]:text-[40px] min-[767px]:leading-[48px] min-[991px]:text-h1'>News, Trends & Gossips</h1>
           </hgroup>
-          <hr className='w-[88px] border-2 border-white mx-auto mb-6' />
-          <p className='text-md mb-[70px]'>
+          <hr className='w-[88px] border-2 border-white mx-auto mb-6 min-[767px]:w-[120px]' />
+          <p className='text-md'>
             Some dummy text, ipsum dolor sit amet consectetur adipisicing elit.
             Perferendis ducimus doloremque officia. Explicabo obcaecati id,
             neque assumenda debitis distinctio ullam ex numquam nulla ipsum
