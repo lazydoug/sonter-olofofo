@@ -80,7 +80,7 @@ module.exports = {
 
         'btn-md': [
           '14px',
-          { lineHeight: '1.71', letterSpacing: '0.125em', fontWeight: '500' },
+          { lineHeight: '24px', letterSpacing: '0.125em', fontWeight: '500' },
         ],
 
         'btn-lg': [

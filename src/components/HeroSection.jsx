@@ -103,15 +103,15 @@ const HeroSection = () => {
           transform: `translateY(${heroContentTranslateY}vh) scale(${heroContentScale}, ${heroContentScale})`,
           opacity: `${heroContentOpacity}`,
         }}>
-        <div className='text-center'>
+        <div className='max-w-[800px] mx-auto text-center'>
           <hgroup>
-            <p className='text-[11px] leading-4 font-semibold tracking-[3px] mb-4'>
+            <p className='text-[11px] leading-4 font-semibold tracking-[3px] mb-4 min-[767px]:text-[14px]'>
               INTRODUCING OLOFOFO
             </p>
             <h1 className='text-h2 mt-2 mb-6 min-[767px]:text-[40px] min-[767px]:leading-[48px] min-[991px]:text-h1'>News, Trends & Gossips</h1>
           </hgroup>
           <hr className='w-[88px] border-2 border-white mx-auto mb-6 min-[767px]:w-[120px]' />
-          <p className='text-md'>
+          <p className='text-md min-[767px]:text-lg'>
             Some dummy text, ipsum dolor sit amet consectetur adipisicing elit.
             Perferendis ducimus doloremque officia. Explicabo obcaecati id,
             neque assumenda debitis distinctio ullam ex numquam nulla ipsum

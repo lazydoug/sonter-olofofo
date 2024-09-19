@@ -138,7 +138,7 @@ const Home = () => {
         </div>
 
         <Link
-          href=''
+          href='/posts'
           className='flex justify-center items-center h-16 mt-5 border border-white/30 rounded-xs tracking-2 text-[14px] font-medium leading-4 transition-all duration-[400ms] hover:bg-primary hover:border-transparent min-[767px]:h-[72px] min-[991px]:h-20 min-[991px]:text-btn-lg'>
           SEE MORE POSTS
         </Link>
