@@ -8,9 +8,9 @@ const NewsletterForm = ({ transparent, responsive }) => {
     <form action=''>
       <div
         className={`flex flex-col ${
-          responsive && 'min-[767px]:flex-row items-center'
+          responsive && 'min-[767px]:flex-row min-[767px]:items-end'
         } gap-5`}>
-        <div className="w-full">
+        <div className='w-full'>
           {!transparent && (
             <label
               htmlFor='subscriber-name'
@@ -29,7 +29,7 @@ const NewsletterForm = ({ transparent, responsive }) => {
           />
         </div>
 
-        <div className="w-full">
+        <div className='w-full'>
           {!transparent && (
             <label
               htmlFor='subscriber-email'
@@ -48,11 +48,8 @@ const NewsletterForm = ({ transparent, responsive }) => {
           />
         </div>
 
-        {
-          // TODO: Button size
-        }
         <button
-          className='bg-primary hover:bg-primary-hover pl-[18px] pr-4 pt-2 pb-[7px] text-btn-sm uppercase rounded-[3px] hover:rounded-none transition-all duration-[400ms]'
+          className='px-6 py-4 bg-primary hover:bg-primary-hover text-btn-md leading-5 uppercase border border-transparent rounded-xs hover:rounded-none transition-all duration-[400ms]'
           type='submit'
           onClick={() => {}}>
           Subscribe
