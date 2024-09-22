@@ -5,17 +5,25 @@ import HalfImageCard from '@/components/HalfImageCard'
 import FullImageCard from '@/components/FullImageCard'
 import NewsletterForm from '@/components/common/NewsletterForm'
 
-import { posts } from '@/demo-data/data'
+import { DummyPosts } from '@/demo-data/data'
 import Image from 'next/image'
 
 const Home = () => {
-  const postsList = posts.slice(-8)
+  const postsList = DummyPosts.slice(-8)
 
   return (
-    <main className='min-h-screen bg-black'>
-      <HeroSection />
+    <main>
+      <HeroSection
+        backgroundImage='/demo/tomasz-zagorski-1396867-unsplash.jpg'
+        header='INTRODUCING OLOFOFO'
+        title='News, Trends & Gossips'
+        subtitle='Some dummy text, ipsum dolor sit amet consectetur adipisicing elit.
+            Perferendis ducimus doloremque officia. Explicabo obcaecati id,
+            neque assumenda debitis distinctio ullam ex numquam nulla ipsum
+            velit. Velit explicabo hic maiores commodi!'
+      />
 
-      <section className='relative z-10 px-4 pb-20 min-[767px]:pb-24 min-[991px]:px-10 min-[991px]:pb-[120px]'>
+      <section className='relative z-10 max-w-[1200px] mx-auto px-4 pb-20 min-[767px]:pb-24 min-[991px]:px-10 min-[991px]:pb-[120px]'>
         <div className='py-2 grid gap-4 justify-stretch items-stretch grid-cols-6'>
           <HalfImageCard
             style='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
@@ -138,7 +146,7 @@ const Home = () => {
         </div>
 
         <Link
-          href='/posts'
+          href='/demo/posts'
           className='flex justify-center items-center h-16 mt-5 border border-white/30 rounded-xs tracking-2 text-[14px] font-medium leading-4 transition-all duration-[400ms] hover:bg-primary hover:border-transparent min-[767px]:h-[72px] min-[991px]:h-20 min-[991px]:text-btn-lg'>
           SEE MORE POSTS
         </Link>

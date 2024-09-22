@@ -1,4 +1,4 @@
-export const posts = [
+export const DummyPosts = [
   {
     id: 8,
     category: 'Style',
