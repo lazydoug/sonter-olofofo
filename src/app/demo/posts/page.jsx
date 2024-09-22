@@ -59,13 +59,13 @@ const PostsPage = () => {
           </div>
         </div>
 
-        <aside>
-          <div className='flex '>
+        <aside className='pt-16'>
+          <div className='flex flex-wrap gap-3 mx-auto min-[479px]:w-4/6'>
             {postsList.map(({ id, category }) => (
               <Link
                 key={id}
                 href={''}
-                className='px-5 py-3 text-btn-md tracking-2 border border-white/40 rounded-xs uppercase'>
+                className='px-5 py-3 text-btn-md tracking-2 border border-white/40 rounded-xs uppercase flex-1 text-center'>
                 {category}
               </Link>
             ))}
