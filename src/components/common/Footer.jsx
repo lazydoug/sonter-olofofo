@@ -5,13 +5,7 @@ import NewsletterForm from './NewsletterForm'
 
 const Footer = () => {
   return (
-    <footer
-      className='p-4 pt-5 bg-cover flex flex-col md:bg-fixed min-[991px]:flex-row'
-      style={{
-        backgroundImage:
-          'linear-gradient(#151515, rgba(21, 21, 21, 0.55)), url("/demo/adrien-olichon-762119-unsplash.jpg")',
-        backgroundPosition: '0px 0px, 50% 50%',
-      }}>
+    <footer className='p-4 pt-5 flex flex-col md:bg-[fixed] min-[991px]:p-6 min-[991px]:flex-row'>
       <div className='px-[12vw] py-[14vw] border border-grey-200 text-center flex-1 min-[479px]:py-[10vw] min-[991px]:p-[4vw] min-[991px]:text-left'>
         <h3 className='text-h4 mb-7'>About</h3>
 
@@ -26,7 +20,6 @@ const Footer = () => {
           Read Full Story
         </Link>
       </div>
-
       <div className='px-[12vw] py-[14vw] border border-grey-200 text-center flex-1 min-[479px]:px-[18vw] min-[479px]:py-[10vw] min-[767px]:px-[24vw] min-[991px]:p-[4vw]'>
         <h3 className='text-h4 mb-7'>Newsletter</h3>
 
@@ -80,7 +73,6 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-
       <div className='flex flex-col gap-[14vw] px-[12vw] pt-[14vw] border border-grey-200 flex-1 min-[479px]:pt-[10vw] min-[479px]:gap-[10vw] min-[991px]:p-[4vw] min-[991px]:pb-0'>
         <div className=' text-center'>
           <h3 className='text-h4 mb-7 min-[991px]:text-right'>Navigation</h3>
@@ -142,7 +134,14 @@ const Footer = () => {
         </div>
 
         <div className='mt-auto -mx-[12vw] p-[6vw] border-t border-grey-200 text-center min-[479px]:p-[4vw] min-[767px]:py-[3vw] min-[991px]:-mx-[4vw] min-[991px]:text-right'>
-          <p className='text-[11px] leading-4 text-white/60'>Created with ❤️</p>
+          <p className='text-[11px] leading-4 text-white/60'>
+            Created with ❤️ by{' '}
+            <Link
+              href=''
+              className='text-white hover:text-primary transition-all ease-in-out duration-500'>
+              Lazy Doug
+            </Link>
+          </p>
         </div>
       </div>
     </footer>
