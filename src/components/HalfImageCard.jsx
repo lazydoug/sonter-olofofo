@@ -15,7 +15,7 @@ const HalfImageCard = ({
   style,
 }) => {
   const [imageScale, setImageScale] = useState(1),
-    [dividerWidth, setDividerWidth] = useState('0'),
+    [underlineWidth, setUnderlineWidth] = useState('0'),
     [featuredTagtWidth, setFeaturedTagWidth] = useState('32px'),
     [featuredTextWidth, setFeaturedTextWidth] = useState('0px'),
     [featuredTextOpacity, setFeaturedTextOpacity] = useState(0)
@@ -30,12 +30,12 @@ const HalfImageCard = ({
 
     const handleMouseEnterCard = () => {
       setImageScale(1.05)
-      setDividerWidth('100%')
+      setUnderlineWidth('100%')
     }
 
     const handleMouseLeaveCard = () => {
       setImageScale(1)
-      setDividerWidth('0')
+      setUnderlineWidth('0')
     }
 
     const handleMouseEnter = () => {
@@ -82,7 +82,12 @@ const HalfImageCard = ({
               style={{
                 width: `${featuredTagtWidth}`,
               }}>
-              <Image src='/demo/zap-white.svg' alt='' width={16} height={16} />
+              <Image
+                src='/demo/zap-white.svg'
+                alt='zap-icon'
+                width={16}
+                height={16}
+              />
               <span
                 className='text-btn-sm text-white tracking-2 transition-all duration-300'
                 style={{
@@ -122,7 +127,7 @@ const HalfImageCard = ({
                 <hr
                   className='inline-block h-[2px] bg-primary border-none transition-all ease-linear duration-500'
                   style={{
-                    width: `${dividerWidth}`,
+                    width: `${underlineWidth}`,
                   }}
                 />
               </div>

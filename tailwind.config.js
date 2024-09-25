@@ -35,12 +35,12 @@ module.exports = {
 
         h2: [
           '32px',
-          { lineHeight: '1.25', letterSpacing: '0', fontWeight: '500' },
+          { lineHeight: '40px', letterSpacing: '0', fontWeight: '500' },
         ],
 
         h3: [
           '24px',
-          { lineHeight: '1.33', letterSpacing: '0', fontWeight: '500' },
+          { lineHeight: '32px', letterSpacing: '0', fontWeight: '500' },
         ],
 
         h4: [
@@ -75,7 +75,7 @@ module.exports = {
 
         'btn-sm': [
           '12px',
-          { lineHeight: '1.33', letterSpacing: '0.125em', fontWeight: '500' },
+          { lineHeight: '16px', letterSpacing: '0.125em', fontWeight: '500' },
         ],
 
         'btn-md': [

@@ -79,3 +79,14 @@ export const DummyPosts = [
     isFeatured: false,
   },
 ]
+
+export const DummyTags = [
+  'Workspace',
+  'Video',
+  'Arhitecture',
+  'Nature',
+  'Aerial',
+  'Motivation',
+  'Photography',
+  'Adventure',
+]

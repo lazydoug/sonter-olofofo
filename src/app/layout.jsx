@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body
-        className={`${bricolageGrotesque.className} bg-black scroll-smooth min-w-80`}>
+        className={`${bricolageGrotesque.className} bg-black scroll-smooth min-w-80 selection:text-primary selection:bg-black`}>
         {children}
         <Footer />
       </body>
