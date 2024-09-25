@@ -13,9 +13,10 @@ const FullImageCard = ({
   readTime,
   isFeatured,
   style,
+  bigPreview,
 }) => {
   const [imageScale, setImageScale] = useState(1),
-    [dividerWidth, setDividerWidth] = useState('0'),
+    [underlineWidth, setUnderlineWidth] = useState('0'),
     [featuredTagtWidth, setFeaturedTagWidth] = useState('32px'),
     [featuredTextWidth, setFeaturedTextWidth] = useState('0px'),
     [featuredTextOpacity, setFeaturedTextOpacity] = useState(0)
@@ -30,21 +31,21 @@ const FullImageCard = ({
 
     const handleMouseEnterCard = () => {
       setImageScale(1.05)
-      setDividerWidth('100%')
+      setUnderlineWidth('100%')
     }
 
     const handleMouseLeaveCard = () => {
       setImageScale(1)
-      setDividerWidth('0')
+      setUnderlineWidth('0')
     }
 
-    const handleMouseEnter = () => {
+    const handleMouseEnterTag = () => {
       setFeaturedTagWidth('118.175px')
       setFeaturedTextWidth('auto')
       setFeaturedTextOpacity(1)
     }
 
-    const handleMouseLeave = () => {
+    const handleMouseLeaveTag = () => {
       setFeaturedTagWidth('32px')
       setFeaturedTextWidth('0px')
       setFeaturedTextOpacity(0)
@@ -55,8 +56,8 @@ const FullImageCard = ({
 
     // Attach event listeners for the featured tag (if it exists)
     if (featured) {
-      featured.addEventListener('mouseenter', handleMouseEnter)
-      featured.addEventListener('mouseleave', handleMouseLeave)
+      featured.addEventListener('mouseenter', handleMouseEnterTag)
+      featured.addEventListener('mouseleave', handleMouseLeaveTag)
     }
 
     return () => {
@@ -64,8 +65,8 @@ const FullImageCard = ({
       card.removeEventListener('mouseleave', handleMouseLeaveCard)
 
       if (featured) {
-        featured.removeEventListener('mouseenter', handleMouseEnter)
-        featured.removeEventListener('mouseleave', handleMouseLeave)
+        featured.removeEventListener('mouseenter', handleMouseEnterTag)
+        featured.removeEventListener('mouseleave', handleMouseLeaveTag)
       }
     }
   }, [])
@@ -73,7 +74,12 @@ const FullImageCard = ({
   return (
     <div ref={fullImageCard} className={style}>
       <Link href={''}>
-        <div className='relative h-[90vw] min-h-[400px] min-[479px]:h-full min-[479px]:min-h-[56vw] min-[991px]:min-h-[400px]'>
+        <div
+          className={`${
+            bigPreview
+              ? 'h-[328px] min-[479px]:h-[64vw] min-[991px]:h-[496px]'
+              : 'h-[90vw] min-h-[400px] min-[479px]:h-full min-[479px]:min-h-[56vw] min-[991px]:min-h-[400px]'
+          } relative`}>
           {/* featured tag */}
           {isFeatured && (
             <div
@@ -82,7 +88,12 @@ const FullImageCard = ({
               style={{
                 width: `${featuredTagtWidth}`,
               }}>
-              <Image src='/demo/zap-white.svg' alt='' width={16} height={16} />
+              <Image
+                src='/demo/zap-white.svg'
+                alt='zap-icon'
+                width={16}
+                height={16}
+              />
               <span
                 className='text-btn-sm text-white tracking-2 transition-all duration-300'
                 style={{
@@ -109,7 +120,10 @@ const FullImageCard = ({
                 {category || 'Category'}
               </span>
 
-              <h4 className='text-h4 text-white line-clamp-3 mb-5'>
+              <h4
+                className={`${
+                  bigPreview ? 'text-h3 min-[767px]:text-h2' : 'text-h4'
+                } text-white line-clamp-3 mb-5`}>
                 {title || 'Title'}
               </h4>
 
@@ -121,7 +135,7 @@ const FullImageCard = ({
                   <hr
                     className='inline-block h-[2px] bg-primary border-none transition-all ease-linear duration-500'
                     style={{
-                      width: `${dividerWidth}`,
+                      width: `${underlineWidth}`,
                     }}
                   />
                 </div>

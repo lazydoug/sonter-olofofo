@@ -27,6 +27,7 @@ const Footer = () => {
           <NewsletterForm transparent />
         </div>
 
+        {/*Social Media*/}
         <div className='w-fit mx-auto flex gap-2'>
           <Link
             href='https://x.com/'
