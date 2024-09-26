@@ -1,8 +1,8 @@
 import localFont from 'next/font/local'
-import './globals.css'
+import '../globals.css'
 
 const neueMachina = localFont({
-  src: '../../public/fonts/NeueMachina-Regular.otf',
+  src: '../../../public/fonts/NeueMachina-Regular.otf',
 })
 
 export const metadata = {
