@@ -6,7 +6,7 @@ import FullImageCard from '@/components/FullImageCard'
 import HeroSection from '@/components/HeroSection'
 import PostTag from '@/components/PostTag'
 
-import { DummyPosts, DummyTags } from '@/demo-data/data'
+import { DummyPosts, DummyTags, DummyCategories } from '@/demo-data/data'
 import InstagramPost from '@/components/InstagramPost'
 import CategoryButton from '@/components/CategoryButton'
 
@@ -69,8 +69,12 @@ const PostsPage = () => {
 
         <aside className='pt-16 min-[479px]:w-2/3 min-[479px]:mx-auto min-[991px]:ml-[5%] min-[991px]:w-[312px] min-[991px]:pt-0'>
           <div className='flex flex-wrap gap-3 mb-12'>
-            {postsList.map(({ id, category,thumbnail }) => (
-              <CategoryButton key={id} category={category} categoryImg={thumbnail}/>
+            {DummyCategories.map(({ id, name, bannerImage }) => (
+              <CategoryButton
+                key={id}
+                categoryName={name}
+                categoryImg={bannerImage}
+              />
             ))}
           </div>
 

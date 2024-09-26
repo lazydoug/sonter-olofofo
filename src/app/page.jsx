@@ -1,9 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 
-import UnderConstruction from './under-construction'
+import UnderConstruction from '../components/under-construction'
 
 export default function Home() {
   const [desktop, setDesktop] = useState(false)

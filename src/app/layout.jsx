@@ -1,10 +1,8 @@
-import { Bricolage_Grotesque } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 
-import Footer from '@/components/common/Footer'
-
-const bricolageGrotesque = Bricolage_Grotesque({
-  subsets: ['latin'],
+const neueMachina = localFont({
+  src: '../../public/fonts/NeueMachina-Regular.otf',
 })
 
 export const metadata = {
@@ -16,9 +14,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body
-        className={`${bricolageGrotesque.className} bg-black scroll-smooth min-w-80 selection:text-primary selection:bg-black`}>
+        className={`${neueMachina.className} bg-[#242323]`}>
         {children}
-        <Footer />
       </body>
     </html>
   )
