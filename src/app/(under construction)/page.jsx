@@ -1,9 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 
-import UnderConstruction from './under-construction'
+import UnderConstruction from '../../components/under-construction'
 
 export default function Home() {
   const [desktop, setDesktop] = useState(false)
@@ -23,12 +22,5 @@ export default function Home() {
     })
   }, [])
 
-  return desktop ? (
-    <UnderConstruction />
-  ) : (
-    <UnderConstruction />
-    // <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-    //   <div></div>
-    // </main>
-  )
+  return desktop ? <UnderConstruction /> : <UnderConstruction />
 }

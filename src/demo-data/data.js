@@ -90,3 +90,19 @@ export const DummyTags = [
   'Photography',
   'Adventure',
 ]
+
+export const DummyCategories = [
+  {
+    id: '1',
+    name: 'Travel',
+    bannerImage: 'habila-mazawaje-1320083-unsplash.jpg',
+  },
+  { id: '2', name: 'Tech', bannerImage: 'daniel-korpai-1236912-unsplash.jpg' },
+  { id: '3', name: 'Style', bannerImage: 'cynthia-del-rio-88318-unsplash.jpg' },
+  {
+    id: '4',
+    name: 'Food',
+    bannerImage: 'monika-grabkowska-1176165-unsplash.jpg',
+  },
+  { id: '5', name: 'Cars', bannerImage: 'kevin-bhagat-753746-unsplash.jpg' },
+]
