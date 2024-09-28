@@ -15,15 +15,16 @@ const FullImageCard = ({
   style,
   bigPreview,
 }) => {
-  const [imageScale, setImageScale] = useState(1),
-    [underlineWidth, setUnderlineWidth] = useState('0'),
-    [featuredTagtWidth, setFeaturedTagWidth] = useState('32px'),
-    [featuredTextWidth, setFeaturedTextWidth] = useState('0px'),
-    [featuredTextOpacity, setFeaturedTextOpacity] = useState(0)
+  const [imageScale, setImageScale] = useState(1)
+  const [underlineWidth, setUnderlineWidth] = useState('0')
+  const [featuredTagtWidth, setFeaturedTagWidth] = useState('32px')
+  const [featuredTextWidth, setFeaturedTextWidth] = useState('0px')
+  const [featuredTextOpacity, setFeaturedTextOpacity] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
 
   //Refs
-  const fullImageCard = useRef(null),
-    featuredTag = useRef(null)
+  const fullImageCard = useRef(),
+    featuredTag = useRef()
 
   useEffect(() => {
     const card = fullImageCard.current
@@ -105,17 +106,9 @@ const FullImageCard = ({
             </div>
           )}
 
-          {/* card image */}
-          <div className='absolute top-0 right-0 bottom-0 left-0 overflow-hidden'>
-            <div
-              className='h-full bg-cover bg-center transition-transform ease-in-out duration-500'
-              style={{
-                backgroundImage: `linear-gradient(180deg, rgba(21, 21, 21, 0) 30%, rgba(21, 21, 21, 0.8)), url(${thumbnail})`,
-                transform: `scale(${imageScale}, ${imageScale})`,
-              }}></div>
-
+          <div className='relative h-full overflow-hidden'>
             {/* card info */}
-            <div className='p-6 absolute flex flex-col bottom-0 left-0 right-0 min-[479px]:h-60'>
+            <div className='p-6 absolute z-[2] flex flex-col bottom-0 left-0 right-0 min-[479px]:h-60'>
               <span className='w-fit mb-4 px-[6px] py-[2px] border border-grey-400 text-[11px] text-white leading-[16px] font-medium tracking-[1px] rounded-[3px] uppercase'>
                 {category || 'Category'}
               </span>
@@ -148,6 +141,28 @@ const FullImageCard = ({
                 </div>
               </div>
             </div>
+
+            {/* overlay gradient */}
+            <div className='absolute z-[1] top-0 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent from-30% to-[rgba(21,_21,_21,_0.8)]'></div>
+
+            {/* card image */}
+            <Image
+              className='object-cover transition-transform ease-in-out duration-500'
+              src={thumbnail}
+              alt={title}
+              fill
+              style={{
+                transform: `scale(${imageScale}, ${imageScale})`,
+              }}
+              onLoad={() => setIsLoading(false)} // Hide placeholder when loaded
+            />
+
+            {
+              /* placeholder */
+              isLoading && (
+                <div className='absolute top-0 right-0 bottom-0 left-0 image-placeholder'></div>
+              )
+            }
           </div>
         </div>
       </Link>

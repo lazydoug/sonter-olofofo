@@ -1,13 +1,14 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
 const FeaturedItem = ({ title, date, category, thumbnail, slug }) => {
   const [imageScale, setImageScale] = useState(1)
 
-  const previewImage = useRef(null)
+  const previewImage = useRef()
 
   useEffect(() => {
     const image = previewImage.current
