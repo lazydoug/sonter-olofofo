@@ -154,7 +154,7 @@ const FullImageCard = ({
               style={{
                 transform: `scale(${imageScale}, ${imageScale})`,
               }}
-              onLoadingComplete={() => setIsLoading(false)} // Hide placeholder when loaded
+              onLoad={() => setIsLoading(false)} // Hide placeholder when loaded
             />
 
             {
