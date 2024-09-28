@@ -15,6 +15,9 @@ const HeroSection = ({ backgroundImage, header, title, subtitle }) => {
   const heroContent = useRef(null)
 
   useEffect(() => {
+    const initialScale = 1.06
+    const minScale = 0.8
+
     const handleResize = () => {
       if (window.innerWidth >= 768 && window.innerWidth < 992) {
         setMarginTop(160)
@@ -29,6 +32,8 @@ const HeroSection = ({ backgroundImage, header, title, subtitle }) => {
     }
 
     const handleScroll = () => {
+      if (!heroContent.current) return //* Adds a safety check
+
       const heroContentHeight = heroContent.current.offsetHeight,
         heroContentBottom = heroContentHeight - marginBottom,
         heroContentMargins = marginTop + marginBottom,
@@ -41,7 +46,7 @@ const HeroSection = ({ backgroundImage, header, title, subtitle }) => {
       // Calculate hero image scale
       const scale =
         scrollY <= heroContentMargins
-          ? 1.06 - (scrollY / heroContentMargins) * (1.06 - 1)
+          ? initialScale - (scrollY / heroContentMargins) * (initialScale - 1)
           : 1
 
       // Calculate hero image opacity
@@ -57,8 +62,8 @@ const HeroSection = ({ backgroundImage, header, title, subtitle }) => {
       // Calculate hero content scale
       const vScale =
         scrollY <= heroContentBottom
-          ? 1 - (scrollY / heroContentBottom) * (1 - 0.8)
-          : 0.8
+          ? 1 - (scrollY / heroContentBottom) * (1 - minScale)
+          : minScale
 
       // Calculate hero content opacity
       const vOpacity =

@@ -37,7 +37,7 @@ const PostsPage = () => {
                 <FullImageCard
                   key={id}
                   title={title}
-                  thumbnail={thumbnail}
+                  thumbnail={`/demo/${thumbnail}`}
                   category={category}
                   date={date}
                   readTime={readTime}
