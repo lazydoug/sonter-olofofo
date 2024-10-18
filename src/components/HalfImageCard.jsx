@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const HalfImageCard = ({
+  slug,
   title,
   thumbnail,
   category,
@@ -72,16 +73,17 @@ const HalfImageCard = ({
 
   return (
     <div ref={halfImageCard} className={style}>
-      <Link href={''}>
+      <Link href={`/demo/posts/${slug}`}>
         <div className='relative'>
           {/* featured tag */}
           {isFeatured && (
             <div
               ref={featuredTag}
-              className='z-10 absolute top-4 right-4 p-2 rounded-xs bg-primary flex gap-2 items-center cursor-pointer overflow-hidden transition-all ease-in-out duration-300'
+              className='absolute right-4 top-4 z-10 flex cursor-pointer items-center gap-2 overflow-hidden rounded-xs bg-primary p-2 transition-all duration-300 ease-in-out'
               style={{
                 width: `${featuredTagtWidth}`,
-              }}>
+              }}
+            >
               <Image
                 src='/demo/zap-white.svg'
                 alt='zap-icon'
@@ -89,11 +91,12 @@ const HalfImageCard = ({
                 height={16}
               />
               <span
-                className='text-btn-sm text-white tracking-2 transition-all duration-300'
+                className='text-btn-sm tracking-2 text-white transition-all duration-300'
                 style={{
                   width: `${featuredTextWidth}`,
                   opacity: `${featuredTextOpacity}`,
-                }}>
+                }}
+              >
                 FEATURED
               </span>
             </div>
@@ -102,30 +105,31 @@ const HalfImageCard = ({
           {/* card image */}
           <div className='h-[64vw] overflow-hidden min-[479px]:h-[33vw] min-[991px]:h-64'>
             <div
-              className='h-full bg-cover bg-center transition-transform ease-in-out duration-500'
+              className='h-full bg-cover bg-center transition-transform duration-500 ease-in-out'
               style={{
                 backgroundImage: `url(${thumbnail})`,
                 transform: `scale(${imageScale}, ${imageScale})`,
-              }}></div>
+              }}
+            ></div>
           </div>
 
           {/* card info */}
-          <div className='p-6 flex flex-col bg-white min-[479px]:h-60'>
-            <span className='w-fit mb-4 px-[6px] py-[2px] border border-grey-400 text-[11px] text-black leading-[16px] font-medium tracking-[1px] rounded-[3px] uppercase'>
+          <div className='flex flex-col bg-white p-6 min-[479px]:h-60'>
+            <span className='mb-4 w-fit rounded-[3px] border border-grey-400 px-[6px] py-[2px] text-[11px] font-medium uppercase leading-[16px] tracking-[1px] text-black'>
               {category || 'Category'}
             </span>
 
-            <h4 className='text-h4 text-black mb-5 line-clamp-3'>
+            <h4 className='mb-5 line-clamp-3 text-h4 text-black'>
               {title || 'Title'}
             </h4>
 
-            <div className='mt-auto flex gap-5 justify-between items-end'>
+            <div className='mt-auto flex items-end justify-between gap-5'>
               <div className='flex flex-col gap-[2px]'>
-                <span className='text-btn-sm text-black font-semibold tracking-2'>
+                <span className='text-btn-sm font-semibold tracking-2 text-black'>
                   READ MORE
                 </span>
                 <hr
-                  className='inline-block h-[2px] bg-primary border-none transition-all ease-linear duration-500'
+                  className='inline-block h-[2px] border-none bg-primary transition-all duration-500 ease-linear'
                   style={{
                     width: `${underlineWidth}`,
                   }}

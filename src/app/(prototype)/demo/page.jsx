@@ -1,18 +1,25 @@
 import Link from 'next/link'
+import Image from 'next/image'
+
+import imageUrlBuilder from '@sanity/image-url'
 
 import HeroSection from '@/components/HeroSection'
 import HalfImageCard from '@/components/HalfImageCard'
 import FullImageCard from '@/components/FullImageCard'
 import NewsletterForm from '@/components/common/NewsletterForm'
 
-import { DummyPosts } from '@/demo-data/data'
-import Image from 'next/image'
+import { client, getPostSlice } from '@/helpers/sanityClient'
 
-const Home = () => {
-  const postsList = DummyPosts.slice(-8)
+const Home = async () => {
+  const posts = await getPostSlice(8)
+  const imgUrlBuilder = imageUrlBuilder(client) // Get a pre-configured url-builder from my sanity client
+
+  function imgUrl(imgSrc) {
+    return imgUrlBuilder.image(imgSrc)
+  }
 
   return (
-    <main>
+    <>
       <HeroSection
         backgroundImage='/demo/tomasz-zagorski-1396867-unsplash.jpg'
         header='INTRODUCING OLOFOFO'
@@ -23,60 +30,65 @@ const Home = () => {
             velit. Velit explicabo hic maiores commodi!'
       />
 
-      <section className='relative z-10 max-w-[1200px] mx-auto px-4 pb-20 min-[767px]:pb-24 min-[991px]:px-10 min-[991px]:pb-[120px]'>
-        <div className='py-2 grid gap-4 justify-stretch items-stretch grid-cols-6'>
+      <section className='relative z-10 mx-auto max-w-[1200px] px-4 pb-20 min-[767px]:pb-24 min-[991px]:px-10 min-[991px]:pb-[120px]'>
+        <div className='grid grid-cols-6 items-stretch justify-stretch gap-4 py-2'>
           <HalfImageCard
             style='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
-            title={postsList[0].title}
-            thumbnail={`/demo/${postsList[0].thumbnail}`}
-            category={postsList[0].category}
-            date={postsList[0].date}
-            readTime={postsList[0].readTime}
-            isFeatured={postsList[0].isFeatured}
+            slug={posts[0].slug.current}
+            title={posts[0].title}
+            thumbnail={imgUrl(posts[0].mainImage).url()}
+            category={posts[0].category.title}
+            date={posts[0].publishedAt}
+            // readTime={posts[0].readTime}
+            isFeatured={posts[0].isFeatured}
           />
 
           <FullImageCard
             style='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
-            title={postsList[1].title}
-            thumbnail={`/demo/${postsList[1].thumbnail}`}
-            category={postsList[1].category}
-            date={postsList[1].date}
-            readTime={postsList[1].readTime}
-            isFeatured={postsList[1].isFeatured}
+            slug={posts[1].slug.current}
+            title={posts[1].title}
+            thumbnail={imgUrl(posts[1].mainImage).url()}
+            category={posts[1].category.title}
+            date={posts[1].publishedAt}
+            // readTime={posts[1].readTime}
+            isFeatured={posts[1].isFeatured}
           />
 
           <HalfImageCard
             style='col-span-6 min-[479px]:col-start-4 min-[479px]:col-span-3 min-[991px]:col-span-2'
-            title={postsList[2].title}
-            thumbnail={`/demo/${postsList[2].thumbnail}`}
-            category={postsList[2].category}
-            date={postsList[2].date}
-            readTime={postsList[2].readTime}
-            isFeatured={postsList[2].isFeatured}
+            slug={posts[2].slug.current}
+            title={posts[2].title}
+            thumbnail={imgUrl(posts[2].mainImage).url()}
+            category={posts[2].category.title}
+            date={posts[2].publishedAt}
+            // readTime={posts[2].readTime}
+            isFeatured={posts[2].isFeatured}
           />
 
           <FullImageCard
-            style='col-span-6 min-[479px]:row-start-2 min-[479px]:col-span-3'
-            title={postsList[3].title}
-            thumbnail={`/demo/${postsList[3].thumbnail}`}
-            category={postsList[3].category}
-            date={postsList[3].date}
-            readTime={postsList[3].readTime}
-            isFeatured={postsList[3].isFeatured}
+            style='col-span-6 min-[479px]:col-span-3 min-[479px]:row-start-2'
+            slug={posts[3].slug.current}
+            title={posts[3].title}
+            thumbnail={imgUrl(posts[3].mainImage).url()}
+            category={posts[3].category.title}
+            date={posts[3].publishedAt}
+            // readTime={posts[3].readTime}
+            isFeatured={posts[3].isFeatured}
           />
 
           <FullImageCard
             style='col-span-6 min-[479px]:row-start-5 min-[479px]:col-span-3 min-[479px]:col-start-4 min-[991px]:row-start-2'
-            title={postsList[4].title}
-            thumbnail={`/demo/${postsList[4].thumbnail}`}
-            category={postsList[4].category}
-            date={postsList[4].date}
-            readTime={postsList[4].readTime}
-            isFeatured={postsList[4].isFeatured}
+            slug={posts[4].slug.current}
+            title={posts[4].title}
+            thumbnail={imgUrl(posts[4].mainImage).url()}
+            category={posts[4].category.title}
+            date={posts[4].publishedAt}
+            // readTime={posts[4].readTime}
+            isFeatured={posts[4].isFeatured}
           />
 
-          <div className='bg-white px-[12%] py-12 col-span-6 min-[479px]:px-[15%] min-[479px]:py-14  min-[767px]:px-[8%] min-[479px]:col-span-6 min-[479px]:row-start-3 min-[991px]:col-span-4'>
-            <h4 className='text-h4 text-black mb-5'>
+          <div className='col-span-6 bg-white px-[12%] py-12 min-[479px]:col-span-6 min-[479px]:row-start-3 min-[479px]:px-[15%] min-[479px]:py-14 min-[767px]:px-[8%] min-[991px]:col-span-4'>
+            <h4 className='mb-5 text-h4 text-black'>
               👉 News Posts Straight to Your Inbox
             </h4>
 
@@ -87,7 +99,8 @@ const Home = () => {
           <>
             <Link
               href=''
-              className='p-8 bg-[#2aa3f0] flex flex-col justify-center items-center col-span-3 min-[991px]:col-span-1'>
+              className='col-span-3 flex flex-col items-center justify-center bg-[#2aa3f0] p-8 min-[991px]:col-span-1'
+            >
               <Image
                 className='mb-4'
                 src='/demo/twitter-white.svg'
@@ -95,13 +108,14 @@ const Home = () => {
                 width={40}
                 height={40}
               />
-              <span className='text-xs mb-[2px]'>Follow us on</span>
+              <span className='mb-[2px] text-xs'>Follow us on</span>
               <span className='text-h6 tracking-[4px]'>TWITTER</span>
             </Link>
 
             <Link
               href=''
-              className='p-8 bg-[#3b5998] flex flex-col justify-center items-center col-span-3 min-[991px]:col-span-1'>
+              className='col-span-3 flex flex-col items-center justify-center bg-[#3b5998] p-8 min-[991px]:col-span-1'
+            >
               <Image
                 className='mb-4'
                 src='/demo/facebook-white.svg'
@@ -109,49 +123,53 @@ const Home = () => {
                 width={40}
                 height={40}
               />
-              <span className='text-xs mb-[2px]'>Like us on</span>
+              <span className='mb-[2px] text-xs'>Like us on</span>
               <span className='text-h6 tracking-[4px]'>FACEBOOK</span>
             </Link>
           </>
 
           <HalfImageCard
             style='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
-            title={postsList[5].title}
-            thumbnail={`/demo/${postsList[5].thumbnail}`}
-            category={postsList[5].category}
-            date={postsList[5].date}
-            readTime={postsList[5].readTime}
-            isFeatured={postsList[5].isFeatured}
+            slug={posts[5].slug.current}
+            title={posts[5].title}
+            thumbnail={imgUrl(posts[5].mainImage).url()}
+            category={posts[5].category.title}
+            date={posts[5].publishedAt}
+            // readTime={posts[5].readTime}
+            isFeatured={posts[5].isFeatured}
           />
 
           <HalfImageCard
             style='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
-            title={postsList[6].title}
-            thumbnail={`/demo/${postsList[6].thumbnail}`}
-            category={postsList[6].category}
-            date={postsList[6].date}
-            readTime={postsList[6].readTime}
-            isFeatured={postsList[6].isFeatured}
+            slug={posts[6].slug.current}
+            title={posts[6].title}
+            thumbnail={imgUrl(posts[6].mainImage).url()}
+            category={posts[6].category.title}
+            date={posts[6].publishedAt}
+            // readTime={posts[6].readTime}
+            isFeatured={posts[6].isFeatured}
           />
 
           <HalfImageCard
             style='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
-            title={postsList[7].title}
-            thumbnail={`/demo/${postsList[7].thumbnail}`}
-            category={postsList[7].category}
-            date={postsList[7].date}
-            readTime={postsList[7].readTime}
-            isFeatured={postsList[7].isFeatured}
+            slug={posts[7].slug.current}
+            title={posts[7].title}
+            thumbnail={imgUrl(posts[7].mainImage).url()}
+            category={posts[7].category.title}
+            date={posts[7].publishedAt}
+            // readTime={posts[7].readTime}
+            isFeatured={posts[7].isFeatured}
           />
         </div>
 
         <Link
           href='/demo/posts'
-          className='flex justify-center items-center h-16 mt-5 border border-white/30 rounded-xs tracking-2 text-[14px] font-medium leading-4 transition-all duration-[400ms] hover:bg-primary hover:border-transparent min-[767px]:h-[72px] min-[991px]:h-20 min-[991px]:text-btn-lg'>
+          className='mt-5 flex h-16 items-center justify-center rounded-xs border border-white/30 text-[14px] font-medium leading-4 tracking-2 transition-all duration-[400ms] hover:border-transparent hover:bg-primary min-[767px]:h-[72px] min-[991px]:h-20 min-[991px]:text-btn-lg'
+        >
           SEE MORE POSTS
         </Link>
       </section>
-    </main>
+    </>
   )
 }
 

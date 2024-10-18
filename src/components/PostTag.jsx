@@ -26,13 +26,14 @@ const PostTag = ({ tag }) => {
   return (
     <Link
       ref={hashTagRef}
-      href={`/tags/${tag}`}
-      className='flex flex-col gap-[2px]'>
-      <span className='text-btn-sm text-white font-semibold capitalize'>
+      href={`/tags/${tag.toLowerCase()}`}
+      className='flex flex-col gap-[2px]'
+    >
+      <span className='text-h6 font-normal capitalize text-white'>
         {`#${tag}`}
       </span>
       <hr
-        className='inline-block h-[2px] bg-primary border-none transition-all ease-linear duration-500'
+        className='inline-block h-[2px] border-none bg-primary transition-all duration-500 ease-linear'
         style={{
           width: `${underlineWidth}`,
         }}

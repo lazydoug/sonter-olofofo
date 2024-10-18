@@ -33,16 +33,18 @@ const FeaturedItem = ({ title, date, category, thumbnail, slug }) => {
     <div className='flex gap-5'>
       <Link
         href={`/${slug}`}
-        className='relative rounded-xs overflow-hidden shrink-0'>
+        className='relative shrink-0 overflow-hidden rounded-xs'
+      >
         <div
           ref={previewImage}
-          className='w-[88px] h-[88px] bg-cover bg-center bg-no-repeat transition-transform ease-in-out duration-500'
+          className='h-[88px] w-[88px] bg-cover bg-center bg-no-repeat transition-transform duration-500 ease-in-out'
           style={{
             backgroundImage: `url(${thumbnail})`,
             transform: `scale(${imageScale}, ${imageScale})`,
-          }}></div>
+          }}
+        ></div>
 
-        <div className='z-10 absolute top-0 right-0 p-1 rounded-tr-xs rounded-bl-xs bg-primary flex items-center'>
+        <div className='absolute right-0 top-0 z-10 flex items-center rounded-bl-xs rounded-tr-xs bg-primary p-1'>
           <Image
             src='/demo/zap-white.svg'
             alt='zap-icon'
@@ -55,8 +57,9 @@ const FeaturedItem = ({ title, date, category, thumbnail, slug }) => {
       <div>
         <Link
           href={`/${title.split(' ').join('-').toLowerCase()}`}
-          className='hover:underline'>
-          <h6 className='text-h6 capitalize mb-1 mt-[1px] line-clamp-3'>
+          className='hover:underline'
+        >
+          <h6 className='mb-1 mt-[1px] line-clamp-3 text-h6 capitalize'>
             {title}
           </h6>
         </Link>
@@ -66,7 +69,8 @@ const FeaturedItem = ({ title, date, category, thumbnail, slug }) => {
 
           <Link
             href={`/category/${category.toLowerCase()}`}
-            className='hover:underline'>
+            className='hover:underline'
+          >
             {category}
           </Link>
         </div>
