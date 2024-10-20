@@ -8,15 +8,11 @@ import HalfImageCard from '@/components/HalfImageCard'
 import FullImageCard from '@/components/FullImageCard'
 import NewsletterForm from '@/components/common/NewsletterForm'
 
-import { client, getPostSlice } from '@/helpers/sanityClient'
+import { getPostSlice } from '@/helpers/sanityClient'
+import imgUrl from '@/helpers/generateImageUrl'
 
 const Home = async () => {
   const posts = await getPostSlice(8)
-  const imgUrlBuilder = imageUrlBuilder(client) // Get a pre-configured url-builder from my sanity client
-
-  function imgUrl(imgSrc) {
-    return imgUrlBuilder.image(imgSrc)
-  }
 
   return (
     <>
@@ -39,7 +35,7 @@ const Home = async () => {
             thumbnail={imgUrl(posts[0].mainImage).url()}
             category={posts[0].category.title}
             date={posts[0].publishedAt}
-            // readTime={posts[0].readTime}
+            bodyLength={posts[0].bodyTextLength}
             isFeatured={posts[0].isFeatured}
           />
 
@@ -50,7 +46,7 @@ const Home = async () => {
             thumbnail={imgUrl(posts[1].mainImage).url()}
             category={posts[1].category.title}
             date={posts[1].publishedAt}
-            // readTime={posts[1].readTime}
+            bodyLength={posts[1].bodyTextLength}
             isFeatured={posts[1].isFeatured}
           />
 
@@ -61,7 +57,7 @@ const Home = async () => {
             thumbnail={imgUrl(posts[2].mainImage).url()}
             category={posts[2].category.title}
             date={posts[2].publishedAt}
-            // readTime={posts[2].readTime}
+            bodyLength={posts[2].bodyTextLength}
             isFeatured={posts[2].isFeatured}
           />
 
@@ -72,7 +68,7 @@ const Home = async () => {
             thumbnail={imgUrl(posts[3].mainImage).url()}
             category={posts[3].category.title}
             date={posts[3].publishedAt}
-            // readTime={posts[3].readTime}
+            bodyLength={posts[3].bodyTextLength}
             isFeatured={posts[3].isFeatured}
           />
 
@@ -83,7 +79,7 @@ const Home = async () => {
             thumbnail={imgUrl(posts[4].mainImage).url()}
             category={posts[4].category.title}
             date={posts[4].publishedAt}
-            // readTime={posts[4].readTime}
+            bodyLength={posts[4].bodyTextLength}
             isFeatured={posts[4].isFeatured}
           />
 
@@ -135,7 +131,7 @@ const Home = async () => {
             thumbnail={imgUrl(posts[5].mainImage).url()}
             category={posts[5].category.title}
             date={posts[5].publishedAt}
-            // readTime={posts[5].readTime}
+            bodyLength={posts[5].bodyTextLength}
             isFeatured={posts[5].isFeatured}
           />
 
@@ -146,7 +142,7 @@ const Home = async () => {
             thumbnail={imgUrl(posts[6].mainImage).url()}
             category={posts[6].category.title}
             date={posts[6].publishedAt}
-            // readTime={posts[6].readTime}
+            bodyLength={posts[6].bodyTextLength}
             isFeatured={posts[6].isFeatured}
           />
 
@@ -157,7 +153,7 @@ const Home = async () => {
             thumbnail={imgUrl(posts[7].mainImage).url()}
             category={posts[7].category.title}
             date={posts[7].publishedAt}
-            // readTime={posts[7].readTime}
+            bodyLength={posts[7].bodyTextLength}
             isFeatured={posts[7].isFeatured}
           />
         </div>

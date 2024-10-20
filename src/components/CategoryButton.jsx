@@ -36,15 +36,19 @@ const CategoryButton = ({ name, imageSrc }) => {
     <Link
       ref={categoryBtnRef}
       href={`/categories/${name.toLowerCase()}`}
-      className='relative px-5 py-3 text-btn-md tracking-2 border border-white/40 rounded-xs overflow-clip uppercase flex-1 text-center hover:border-transparent transition-all ease-in-out duration-[400ms]'>
-      <span>{name}</span>
-      <div
-        className='absolute -z-[1] top-0 left-0 right-0 bottom-0 bg-cover bg-center overflow- transition-all ease-in-out duration-500'
-        style={{
-          backgroundImage: `linear-gradient(rgba(21, 21, 21, 0.5), rgba(21, 21, 21, 0.5)), url(${imageSrc})`,
-          transform: `scale(${imageScale}, ${imageScale})`,
-          opacity: `${imageOpacity}`,
-        }}></div>
+      className='flex-1'
+    >
+      <div className='relative overflow-clip rounded-xs border border-white/40 px-5 py-3 text-center text-btn-md uppercase tracking-2 transition-all duration-[400ms] ease-in-out hover:border-transparent'>
+        <span>{name}</span>
+        <div
+          className='overflow- absolute bottom-0 left-0 right-0 top-0 -z-[1] bg-cover bg-center transition-all duration-500 ease-in-out'
+          style={{
+            backgroundImage: `linear-gradient(rgba(21, 21, 21, 0.5), rgba(21, 21, 21, 0.5)), url(${imageSrc})`,
+            transform: `scale(${imageScale}, ${imageScale})`,
+            opacity: `${imageOpacity}`,
+          }}
+        ></div>
+      </div>
     </Link>
   )
 }

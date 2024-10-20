@@ -58,7 +58,9 @@ const SinglePostPage = () => {
         </div>
       </div>
 
-      <section className='mb-20 bg-white pb-14 pt-20'></section>
+      <section className='mb-20 bg-white pb-14 pt-20'>
+        {'Body goes here'}
+      </section>
 
       {/* more posts */}
       <section className='relative z-10 px-4'>

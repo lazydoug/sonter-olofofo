@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const FeaturedItem = ({ title, date, category, thumbnail, slug }) => {
+const FeaturedItem = ({ title, slug, date, category, thumbnail }) => {
   const [imageScale, setImageScale] = useState(1)
 
   const previewImage = useRef()
@@ -29,10 +29,18 @@ const FeaturedItem = ({ title, date, category, thumbnail, slug }) => {
     }
   })
 
+  // Format date
+  const d = new Date(date)
+  const formattedDate = new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(d)
+
   return (
     <div className='flex gap-5'>
       <Link
-        href={`/${slug}`}
+        href={`/posts/${slug}`}
         className='relative shrink-0 overflow-hidden rounded-xs'
       >
         <div
@@ -55,16 +63,13 @@ const FeaturedItem = ({ title, date, category, thumbnail, slug }) => {
       </Link>
 
       <div>
-        <Link
-          href={`/${title.split(' ').join('-').toLowerCase()}`}
-          className='hover:underline'
-        >
+        <Link href={`/posts/${slug}`} className='hover:underline'>
           <h6 className='mb-1 mt-[1px] line-clamp-3 text-h6 capitalize'>
             {title}
           </h6>
         </Link>
         <div className='flex text-[11px] text-white/50'>
-          <time dateTime=''>{date}</time>
+          <time dateTime={formattedDate}>{formattedDate}</time>
           <span>&nbsp;in&nbsp;</span>
 
           <Link

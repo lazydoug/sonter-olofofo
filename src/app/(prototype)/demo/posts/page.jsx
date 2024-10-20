@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
-import ImageUrlBuilder from '@sanity/image-url'
+import { notFound } from 'next/navigation'
 
 import FeaturedItem from '@/components/FeaturedItem'
 import FullImageCard from '@/components/FullImageCard'
@@ -11,14 +10,13 @@ import InstagramPost from '@/components/InstagramPost'
 import CategoryButton from '@/components/CategoryButton'
 import Pagination from '@/components/common/Pagination'
 
+import imgUrl from '@/helpers/generateImageUrl'
 import {
-  client,
   getAllPosts,
   getCategories,
   getFeaturedPosts,
   getTags,
 } from '@/helpers/sanityClient'
-import { notFound } from 'next/navigation'
 
 const PostsPage = async ({ searchParams }) => {
   const allPosts = await getAllPosts()
@@ -34,12 +32,6 @@ const PostsPage = async ({ searchParams }) => {
     (currentPage - 1) * numberOfPostsPerPage,
     currentPage * numberOfPostsPerPage
   )
-
-  const imgUrlBuilder = ImageUrlBuilder(client) // Get a pre-configured url-builder from my sanity client
-
-  function imgUrl(imgSrc) {
-    return imgUrlBuilder.image(imgSrc)
-  }
 
   if (currentPage > numberOfPages) return notFound()
 
@@ -61,8 +53,8 @@ const PostsPage = async ({ searchParams }) => {
                 title={post.title}
                 thumbnail={imgUrl(post.mainImage).url()}
                 category={post.category.title}
-                date={post.piblishedAt}
-                readTime={'readTime'}
+                date={post.publishedAt}
+                bodyLength={post.bodyTextLength}
                 isFeatured={post.isFeatured}
                 bigPreview
               />
@@ -96,9 +88,10 @@ const PostsPage = async ({ searchParams }) => {
               {featuredPosts.map((featuredPost) => (
                 <FeaturedItem
                   key={featuredPost._id}
+                  slug={featuredPost.slug.current}
                   title={featuredPost.title}
                   category={featuredPost.category.title}
-                  date={featuredPost.piblishedAt}
+                  date={featuredPost.publishedAt}
                   thumbnail={imgUrl(featuredPost.mainImage).url()}
                 />
               ))}
@@ -201,8 +194,8 @@ const PostsPage = async ({ searchParams }) => {
             </div>
 
             <div className='grid grid-cols-3 grid-rows-2 gap-2'>
-              {slicedPosts.map(({ id, thumbnail }) => (
-                <InstagramPost key={id} imageUrl={thumbnail} />
+              {slicedPosts.map(({ _id, mainImage }) => (
+                <InstagramPost key={_id} imageUrl={imgUrl(mainImage).url()} />
               ))}
             </div>
           </div>

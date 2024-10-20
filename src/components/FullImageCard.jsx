@@ -11,7 +11,7 @@ const FullImageCard = ({
   thumbnail,
   category,
   date,
-  readTime,
+  bodyLength,
   isFeatured,
   style,
   bigPreview,
@@ -88,6 +88,21 @@ const FullImageCard = ({
     }
   }, [])
 
+  // Calculate read time
+  const meanWordCharacterCount = 5,
+    wordsPerMinute = 200
+  const readTime = Math.ceil(
+    bodyLength / meanWordCharacterCount / wordsPerMinute
+  )
+
+  // Format date
+  const d = new Date(date)
+  const formattedDate = new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(d)
+
   return (
     <div ref={fullImageCard} className={style}>
       <Link href={`/demo/posts/${slug}`}>
@@ -129,7 +144,7 @@ const FullImageCard = ({
               <h4
                 className={`${
                   bigPreview ? 'text-h3 min-[767px]:text-h2' : 'text-h4'
-                } mb-5 line-clamp-3 text-white`}
+                } mb-5 line-clamp-3 text-white min-[991px]:line-clamp-2`}
               >
                 {title || 'Title'}
               </h4>
@@ -148,9 +163,9 @@ const FullImageCard = ({
                 </div>
 
                 <div className='flex flex-col items-end text-btn-sm text-white'>
-                  <span>{readTime || 'Read time'}</span>
-                  <time dateTime='' className='text-right'>
-                    {date || 'Date'}
+                  <span>{`${readTime} mins`}</span>
+                  <time dateTime={formattedDate} className='text-right'>
+                    {formattedDate}
                   </time>
                 </div>
               </div>

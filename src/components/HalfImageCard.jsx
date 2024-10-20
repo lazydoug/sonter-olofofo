@@ -11,7 +11,7 @@ const HalfImageCard = ({
   thumbnail,
   category,
   date,
-  readTime,
+  bodyLength,
   isFeatured,
   style,
 }) => {
@@ -70,6 +70,21 @@ const HalfImageCard = ({
       }
     }
   }, [])
+
+  // Calculate read time
+  const meanWordCharacterCount = 5,
+    wordsPerMinute = 200
+  const readTime = Math.ceil(
+    bodyLength / meanWordCharacterCount / wordsPerMinute
+  )
+
+  // Format date
+  const d = new Date(date)
+  const formattedDate = new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(d)
 
   return (
     <div ref={halfImageCard} className={style}>
@@ -136,9 +151,9 @@ const HalfImageCard = ({
                 />
               </div>
               <div className='flex flex-col items-end text-btn-sm text-grey-300'>
-                <span>{readTime || 'Read time'}</span>
-                <time dateTime='' className='text-right'>
-                  {date || 'Date'}
+                <span>{`${readTime} mins`}</span>
+                <time dateTime={formattedDate} className='text-right'>
+                  {formattedDate}
                 </time>
               </div>
             </div>
