@@ -91,7 +91,7 @@ const HeroSection = ({ backgroundImage, header, title, subtitle }) => {
 
   return (
     <section>
-      <div className='absolute z-0 right-0 top-0 left-0 bottom-0 min-w-80 w-full h-[100vh] overflow-hidden'>
+      <div className='absolute z-0 right-0 top-0 left-0 bottom-0 min-w-80 w-full h-screen overflow-hidden'>
         <div className='absolute z-10 right-0 top-0 left-0 bottom-0 bg-gradient-to-b from-[rgba(21,_21,_21,_0.4)] from-30% to-black to-50% min-[479px]:to-80% min-[767px]:to-70% min-[991px]:to-80%'></div>
         <div
           className='absolute right-0 top-0 left-0 bottom-0 h-[50vh] min-h-[360px] bg-center bg-cover bg-no-repeat transition-all ease-[ease] duration-0 min-[479px]:h-screen min-[767px]:h-[70vh] min-[991px]:h-screen'
@@ -104,7 +104,7 @@ const HeroSection = ({ backgroundImage, header, title, subtitle }) => {
 
       <div
         ref={heroContent}
-        className='relative z-10 px-4 pt-[120px] pb-20 transition-all ease-[ease] duration-0 min-[767px]:pt-40 min-[767px]:pb-28 min-[991px]:min-h-[520px] min-[991px]:pt-[200px] min-[991px]:pb-40'
+        className='px-4 pt-[120px] pb-20 transition-all ease-[ease] duration-0 min-[767px]:pt-40 min-[767px]:pb-28 min-[991px]:min-h-[520px] min-[991px]:pt-[200px] min-[991px]:pb-40'
         style={{
           transform: `translateY(${heroContentTranslateY}vh) scale(${heroContentScale}, ${heroContentScale})`,
           opacity: `${heroContentOpacity}`,

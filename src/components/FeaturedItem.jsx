@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const FeaturedItem = ({ title, date, category, thumbnail, slug }) => {
+const FeaturedItem = ({ title, slug, date, category, thumbnail }) => {
   const [imageScale, setImageScale] = useState(1)
 
   const previewImage = useRef()
@@ -29,20 +29,30 @@ const FeaturedItem = ({ title, date, category, thumbnail, slug }) => {
     }
   })
 
+  // Format date
+  const d = new Date(date)
+  const formattedDate = new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(d)
+
   return (
     <div className='flex gap-5'>
       <Link
-        href={`/${slug}`}
-        className='relative rounded-xs overflow-hidden shrink-0'>
+        href={`/posts/${slug}`}
+        className='relative shrink-0 overflow-hidden rounded-xs'
+      >
         <div
           ref={previewImage}
-          className='w-[88px] h-[88px] bg-cover bg-center bg-no-repeat transition-transform ease-in-out duration-500'
+          className='h-[88px] w-[88px] bg-cover bg-center bg-no-repeat transition-transform duration-500 ease-in-out'
           style={{
             backgroundImage: `url(${thumbnail})`,
             transform: `scale(${imageScale}, ${imageScale})`,
-          }}></div>
+          }}
+        ></div>
 
-        <div className='z-10 absolute top-0 right-0 p-1 rounded-tr-xs rounded-bl-xs bg-primary flex items-center'>
+        <div className='absolute right-0 top-0 z-10 flex items-center rounded-bl-xs rounded-tr-xs bg-primary p-1'>
           <Image
             src='/demo/zap-white.svg'
             alt='zap-icon'
@@ -53,20 +63,19 @@ const FeaturedItem = ({ title, date, category, thumbnail, slug }) => {
       </Link>
 
       <div>
-        <Link
-          href={`/${title.split(' ').join('-').toLowerCase()}`}
-          className='hover:underline'>
-          <h6 className='text-h6 capitalize mb-1 mt-[1px] line-clamp-3'>
+        <Link href={`/posts/${slug}`} className='hover:underline'>
+          <h6 className='mb-1 mt-[1px] line-clamp-3 text-h6 capitalize'>
             {title}
           </h6>
         </Link>
         <div className='flex text-[11px] text-white/50'>
-          <time dateTime=''>{date}</time>
+          <time dateTime={formattedDate}>{formattedDate}</time>
           <span>&nbsp;in&nbsp;</span>
 
           <Link
             href={`/category/${category.toLowerCase()}`}
-            className='hover:underline'>
+            className='hover:underline'
+          >
             {category}
           </Link>
         </div>

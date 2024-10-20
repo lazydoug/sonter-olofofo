@@ -38,13 +38,14 @@ const InstagramPost = ({ imageUrl, postUrl }) => {
       <div className='relative w-full pb-[100%]'>
         <Image
           className='object-cover'
-          src={`/demo/${imageUrl}`}
+          src={imageUrl}
           alt='Featured Instagram posts'
           fill
         />
         <div
-          className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/4 h-1/4 min-w-8 min-h-8 bg-[url("/demo/instagram-white.svg")] bg-primary bg-center bg-[length:44%] bg-no-repeat rounded-full transition-all duration-500'
-          style={{ opacity: `${opacity}`, scale: `${imageScale}` }}></div>
+          className='absolute left-1/2 top-1/2 h-1/4 min-h-8 w-1/4 min-w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary bg-[url("/demo/instagram-white.svg")] bg-[length:44%] bg-center bg-no-repeat transition-all duration-500'
+          style={{ opacity: `${opacity}`, scale: `${imageScale}` }}
+        ></div>
       </div>
     </Link>
   )
