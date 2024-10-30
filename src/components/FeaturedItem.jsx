@@ -5,6 +5,8 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { shortDateFormatter } from '@/helpers/dateFormatter'
+
 const FeaturedItem = ({ title, slug, date, category, thumbnail }) => {
   const [imageScale, setImageScale] = useState(1)
 
@@ -29,18 +31,14 @@ const FeaturedItem = ({ title, slug, date, category, thumbnail }) => {
     }
   })
 
+
   // Format date
-  const d = new Date(date)
-  const formattedDate = new Intl.DateTimeFormat('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  }).format(d)
+  const formattedDate = shortDateFormatter.format(new Date(date))
 
   return (
     <div className='flex gap-5'>
       <Link
-        href={`/posts/${slug}`}
+        href={`/demo/posts/${slug}`}
         className='relative shrink-0 overflow-hidden rounded-xs'
       >
         <div
@@ -63,7 +61,7 @@ const FeaturedItem = ({ title, slug, date, category, thumbnail }) => {
       </Link>
 
       <div>
-        <Link href={`/posts/${slug}`} className='hover:underline'>
+        <Link href={`/demo/posts/${slug}`} className='hover:underline'>
           <h6 className='mb-1 mt-[1px] line-clamp-3 text-h6 capitalize'>
             {title}
           </h6>
@@ -73,7 +71,7 @@ const FeaturedItem = ({ title, slug, date, category, thumbnail }) => {
           <span>&nbsp;in&nbsp;</span>
 
           <Link
-            href={`/category/${category.toLowerCase()}`}
+            href={`/demo/categories/${category.toLowerCase()}`}
             className='hover:underline'
           >
             {category}

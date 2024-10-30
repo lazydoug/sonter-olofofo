@@ -9,27 +9,29 @@ import FullImageCard from '@/components/FullImageCard'
 import NewsletterForm from '@/components/common/NewsletterForm'
 
 import { getPostSlice } from '@/helpers/sanityClient'
-import imgUrl from '@/helpers/generateImageUrl'
+import { imgUrl } from '@/helpers/generateImageUrl'
 
 const Home = async () => {
   const posts = await getPostSlice(8)
 
   return (
     <>
-      <HeroSection
-        backgroundImage='/demo/tomasz-zagorski-1396867-unsplash.jpg'
-        header='INTRODUCING OLOFOFO'
-        title='News, Trends & Gossips'
-        subtitle='Some dummy text, ipsum dolor sit amet consectetur adipisicing elit.
-            Perferendis ducimus doloremque officia. Explicabo obcaecati id,
-            neque assumenda debitis distinctio ullam ex numquam nulla ipsum
-            velit. Velit explicabo hic maiores commodi!'
-      />
+      <section>
+        <HeroSection
+          backgroundImage='/demo/tomasz-zagorski-1396867-unsplash.jpg'
+          header='INTRODUCING OLOFOFO'
+          title='News, Trends & Gossips'
+          subtitle='Some dummy text, ipsum dolor sit amet consectetur adipisicing elit.
+              Perferendis ducimus doloremque officia. Explicabo obcaecati id,
+              neque assumenda debitis distinctio ullam ex numquam nulla ipsum
+              velit. Velit explicabo hic maiores commodi!'
+        />
+      </section>
 
       <section className='relative z-10 mx-auto max-w-[1200px] px-4 pb-20 min-[767px]:pb-24 min-[991px]:px-10 min-[991px]:pb-[120px]'>
         <div className='grid grid-cols-6 items-stretch justify-stretch gap-4 py-2'>
           <HalfImageCard
-            style='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
+            className='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
             slug={posts[0].slug.current}
             title={posts[0].title}
             thumbnail={imgUrl(posts[0].mainImage).url()}
@@ -40,7 +42,7 @@ const Home = async () => {
           />
 
           <FullImageCard
-            style='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
+            className='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
             slug={posts[1].slug.current}
             title={posts[1].title}
             thumbnail={imgUrl(posts[1].mainImage).url()}
@@ -51,7 +53,7 @@ const Home = async () => {
           />
 
           <HalfImageCard
-            style='col-span-6 min-[479px]:col-start-4 min-[479px]:col-span-3 min-[991px]:col-span-2'
+            className='col-span-6 min-[479px]:col-span-3 min-[479px]:col-start-4 min-[991px]:col-span-2'
             slug={posts[2].slug.current}
             title={posts[2].title}
             thumbnail={imgUrl(posts[2].mainImage).url()}
@@ -62,7 +64,7 @@ const Home = async () => {
           />
 
           <FullImageCard
-            style='col-span-6 min-[479px]:col-span-3 min-[479px]:row-start-2'
+            className='col-span-6 min-[479px]:col-span-3 min-[479px]:row-start-2'
             slug={posts[3].slug.current}
             title={posts[3].title}
             thumbnail={imgUrl(posts[3].mainImage).url()}
@@ -73,7 +75,7 @@ const Home = async () => {
           />
 
           <FullImageCard
-            style='col-span-6 min-[479px]:row-start-5 min-[479px]:col-span-3 min-[479px]:col-start-4 min-[991px]:row-start-2'
+            className='col-span-6 min-[479px]:col-span-3 min-[479px]:col-start-4 min-[479px]:row-start-5 min-[991px]:row-start-2'
             slug={posts[4].slug.current}
             title={posts[4].title}
             thumbnail={imgUrl(posts[4].mainImage).url()}
@@ -125,7 +127,7 @@ const Home = async () => {
           </>
 
           <HalfImageCard
-            style='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
+            className='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
             slug={posts[5].slug.current}
             title={posts[5].title}
             thumbnail={imgUrl(posts[5].mainImage).url()}
@@ -136,7 +138,7 @@ const Home = async () => {
           />
 
           <HalfImageCard
-            style='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
+            className='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
             slug={posts[6].slug.current}
             title={posts[6].title}
             thumbnail={imgUrl(posts[6].mainImage).url()}
@@ -147,7 +149,7 @@ const Home = async () => {
           />
 
           <HalfImageCard
-            style='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
+            className='col-span-6 min-[479px]:col-span-3 min-[991px]:col-span-2'
             slug={posts[7].slug.current}
             title={posts[7].title}
             thumbnail={imgUrl(posts[7].mainImage).url()}

@@ -1,9 +1,11 @@
 'use client'
 
-import React from 'react'
 import { useEffect, useRef, useState } from 'react'
+
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { longDateFormatter } from '@/helpers/dateFormatter'
 
 const HalfImageCard = ({
   slug,
@@ -13,7 +15,7 @@ const HalfImageCard = ({
   date,
   bodyLength,
   isFeatured,
-  style,
+  className,
 }) => {
   const [imageScale, setImageScale] = useState(1),
     [underlineWidth, setUnderlineWidth] = useState('0'),
@@ -79,15 +81,10 @@ const HalfImageCard = ({
   )
 
   // Format date
-  const d = new Date(date)
-  const formattedDate = new Intl.DateTimeFormat('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  }).format(d)
+  const formattedDate = longDateFormatter.format(new Date(date))
 
   return (
-    <div ref={halfImageCard} className={style}>
+    <div ref={halfImageCard} className={className}>
       <Link href={`/demo/posts/${slug}`}>
         <div className='relative'>
           {/* featured tag */}
