@@ -12,35 +12,45 @@ import UnderlineLinkText from '@/components/common/UnderlineLinkText'
 
 import { imgUrl } from '@/helpers/generateImageUrl'
 import {
-  getAllPosts,
-  getCategories,
   getFeaturedPosts,
+  getCategories,
   getTags,
+  getPostsByTag,
 } from '@/helpers/sanityClient'
 
-const PostsPage = async ({ searchParams }) => {
-  const allPosts = await getAllPosts()
+const SingleTagPage = async ({ params, searchParams }) => {
+  /**
+   * Fetch posts by Tag
+   * Return not found if current page exceeds available pages (out-of-range pages)
+   * Render posts
+   */
+
+  const tagName = params.tagName
+  const { tag, posts } = await getPostsByTag(tagName)
+
+  if (!tag) return notFound()
+
   const featuredPosts = await getFeaturedPosts()
   const categories = await getCategories()
   const tags = await getTags()
 
   const numberOfPostsPerPage = 5
-  const numberOfPages = Math.ceil(allPosts.length / numberOfPostsPerPage)
+  const numberOfPages = Math.ceil(posts.length / numberOfPostsPerPage)
   const currentPage = parseInt(searchParams.page) || 1
 
-  const slicedPosts = allPosts.slice(
+  if (currentPage > numberOfPages) return notFound() // Handle out-of-range pages
+
+  const slicedPosts = posts.slice(
     (currentPage - 1) * numberOfPostsPerPage,
     currentPage * numberOfPostsPerPage
   )
 
-  if (currentPage > numberOfPages) return notFound()
-
   return (
     <section className='min-h-screen bg-black'>
       <HeroSection
-        backgroundImage='/demo/tomasz-zagorski-1130739-unsplash.jpg'
-        header='OLOFOFO'
-        title='All Posts'
+        backgroundImage={imgUrl(tag.coverImage).url()}
+        header='All Post Tagged'
+        title={tag.title}
       />
 
       <section className='relative z-20 mx-auto flex max-w-[1200px] flex-wrap px-4 pb-20 min-[767px]:pb-24 min-[991px]:px-8 min-[991px]:pb-[120px]'>
@@ -110,7 +120,7 @@ const PostsPage = async ({ searchParams }) => {
               {tags.map(({ _id, title }) => (
                 <UnderlineLinkText
                   key={_id}
-                  href={`/tags/${title.toLowerCase()}`}
+                  href={`/demo/tags/${title.toLowerCase()}`}
                 >{`#${title}`}</UnderlineLinkText>
               ))}
             </div>
@@ -208,4 +218,4 @@ const PostsPage = async ({ searchParams }) => {
   )
 }
 
-export default PostsPage
+export default SingleTagPage

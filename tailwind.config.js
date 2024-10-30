@@ -30,7 +30,7 @@ module.exports = {
       fontSize: {
         h1: [
           '56px',
-          { lineHeight: '1.28', letterSpacing: '0', fontWeight: '500' },
+          { lineHeight: '72px', letterSpacing: '0', fontWeight: '500' },
         ],
 
         h2: [
@@ -50,7 +50,7 @@ module.exports = {
 
         h5: [
           '17px',
-          { lineHeight: '1.41', letterSpacing: '0', fontWeight: '500' },
+          { lineHeight: '24px', letterSpacing: '0', fontWeight: '500' },
         ],
 
         h6: [
@@ -60,7 +60,7 @@ module.exports = {
 
         sm: [
           '12px',
-          { lineHeight: '1.66', letterSpacing: '0', fontWeight: '400' },
+          { lineHeight: '20px', letterSpacing: '0', fontWeight: '400' },
         ],
 
         md: [
@@ -70,7 +70,7 @@ module.exports = {
 
         lg: [
           '16px',
-          { lineHeight: '1.75', letterSpacing: '0', fontWeight: '400' },
+          { lineHeight: '28px', letterSpacing: '0', fontWeight: '400' },
         ],
 
         'btn-sm': [

@@ -35,7 +35,7 @@ const CategoryButton = ({ name, imageSrc }) => {
   return (
     <Link
       ref={categoryBtnRef}
-      href={`/categories/${name.toLowerCase()}`}
+      href={`/demo/categories/${name.toLowerCase()}`}
       className='flex-1'
     >
       <div className='relative overflow-clip rounded-xs border border-white/40 px-5 py-3 text-center text-btn-md uppercase tracking-2 transition-all duration-[400ms] ease-in-out hover:border-transparent'>

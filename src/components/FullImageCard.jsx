@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { longDateFormatter } from '@/helpers/dateFormatter'
+
 const FullImageCard = ({
   slug,
   title,
@@ -13,10 +15,10 @@ const FullImageCard = ({
   date,
   bodyLength,
   isFeatured,
-  style,
   bigPreview,
   cardVersion1,
   cardVersion2,
+  className,
 }) => {
   //Preset styling
   const defaultPresetStyle =
@@ -24,8 +26,7 @@ const FullImageCard = ({
 
   const cardStyle =
     (bigPreview && 'h-[328px] min-[479px]:h-[64vw] min-[991px]:h-[496px]') ||
-    (cardVersion1 &&
-      'h-[90vw] min-h-[400px] min-[479px]:h-full min-[479px]:min-h-[56vw] min-[991px]:min-h-[400px]') ||
+    (cardVersion1 && 'h-full min-h-[400px] min-[767px]:min-h-[480px]') ||
     (cardVersion2 &&
       'h-[90vw] min-h-[480px] min-[479px]:h-full min-[991px]:min-h-[480px]') ||
     defaultPresetStyle
@@ -96,15 +97,10 @@ const FullImageCard = ({
   )
 
   // Format date
-  const d = new Date(date)
-  const formattedDate = new Intl.DateTimeFormat('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  }).format(d)
+  const formattedDate = longDateFormatter.format(new Date(date))
 
   return (
-    <div ref={fullImageCard} className={style}>
+    <div ref={fullImageCard} className={className}>
       <Link href={`/demo/posts/${slug}`}>
         <div className={`${cardStyle} relative`}>
           {/* featured tag */}
@@ -138,7 +134,7 @@ const FullImageCard = ({
             {/* card info */}
             <div className='absolute bottom-0 left-0 right-0 z-[2] flex flex-col p-6 min-[479px]:h-60'>
               <span className='mb-4 w-fit rounded-[3px] border border-grey-400 px-[6px] py-[2px] text-[11px] font-medium uppercase leading-[16px] tracking-[1px] text-white'>
-                {category || 'Category'}
+                {category}
               </span>
 
               <h4
@@ -146,7 +142,7 @@ const FullImageCard = ({
                   bigPreview ? 'text-h3 min-[767px]:text-h2' : 'text-h4'
                 } mb-5 line-clamp-3 text-white min-[991px]:line-clamp-2`}
               >
-                {title || 'Title'}
+                {title}
               </h4>
 
               <div className='mt-auto flex items-end justify-between gap-5'>

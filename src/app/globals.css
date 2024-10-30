@@ -23,7 +23,7 @@ body {
 footer {
   background-image: linear-gradient(#151515, rgba(21, 21, 21, 0.55)),
     url('/demo/adrien-olichon-762119-unsplash.jpg');
-  background-position: '50% 50%';
+  background-position: 50% 50%;
   background-size: cover;
 }
 
@@ -37,6 +37,22 @@ footer {
     #73726b 100%
   );
   background-size: 200% 100%;
+}
+
+.menu-items {
+  animation: menu-items 500ms;
+}
+
+@keyframes menu-items {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes shimmer {
