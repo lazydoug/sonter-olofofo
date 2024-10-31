@@ -4,7 +4,13 @@ import { useEffect, useRef, useState } from 'react'
 
 import Link from 'next/link'
 
-const UnderlineLinkText = ({ children, href, className, footer }) => {
+const UnderlineLinkText = ({
+  children,
+  href,
+  className,
+  footer,
+  onClickHandler,
+}) => {
   const [underlineWidth, setUnderlineWidth] = useState('0')
 
   const textContainerRef = useRef()
@@ -33,7 +39,8 @@ const UnderlineLinkText = ({ children, href, className, footer }) => {
     <Link
       ref={textContainerRef}
       href={href}
-      className='flex flex-col gap-[2px] w-fit'
+      onClick={onClickHandler}
+      className='flex w-fit flex-col gap-[2px]'
     >
       <span className={className || 'text-h6 !font-normal'}>{children}</span>
       <hr
