@@ -72,7 +72,7 @@ const PostBody = ({ article, tags }) => {
       {/* Tags */}
       <div className='flex gap-4 pt-8'>
         {tags.map(({ _id, title }) => (
-          <UnderlineHoverText key={_id} href={`/tags/${title.toLowerCase()}`}>
+          <UnderlineHoverText key={_id} href={`/demo/tags/${title.toLowerCase()}`}>
             {<span className='text-grey-300'>#</span>}
             {title}
           </UnderlineHoverText>

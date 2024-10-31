@@ -90,6 +90,7 @@ const NavBar = () => {
   })
 
   const toggleMenu = () => {
+    console.log("clicked")
     setIsMenuOpen((prev) => !prev)
   }
 
@@ -237,7 +238,7 @@ const NavBar = () => {
                 <UnderlineLinkText
                   href='/demo'
                   className='text-inherit'
-                  onClick={toggleMenu}
+                  onClickHandler={toggleMenu}
                 >
                   Home
                 </UnderlineLinkText>
