@@ -86,26 +86,26 @@ const Footer = () => {
           <ul className='mb-5 flex flex-wrap justify-center gap-x-5 gap-y-3 min-[991px]:justify-end'>
             <li>
               <Link
-                href=''
+                href='/demo/'
                 className='text-h6 font-normal text-white/60 transition-colors duration-300 ease-in-out hover:text-white'
               >
-                Lorem
+                Home
               </Link>
             </li>
             <li>
               <Link
-                href=''
+                href='/demo/posts'
                 className='text-h6 font-normal text-white/60 transition-colors duration-300 ease-in-out hover:text-white'
               >
-                Ipsum
+                Posts
               </Link>
             </li>
             <li>
               <Link
-                href=''
+                href='/demo/about/'
                 className='text-h6 font-normal text-white/60 transition-colors duration-300 ease-in-out hover:text-white'
               >
-                Dolor
+                About
               </Link>
             </li>
             <li>
