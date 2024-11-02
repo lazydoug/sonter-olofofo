@@ -10,6 +10,7 @@ const UnderlineLinkText = ({
   className,
   footer,
   onClickHandler,
+  underlineBig,
 }) => {
   const [underlineWidth, setUnderlineWidth] = useState('0')
 
@@ -35,17 +36,20 @@ const UnderlineLinkText = ({
     }
   })
 
+  const height = (footer && '1px') || (underlineBig && '4px') || '2px'
+
   return (
     <Link
       ref={textContainerRef}
       href={href}
       onClick={onClickHandler}
-      className='flex w-fit flex-col gap-[2px]'
+      className='flex w-fit flex-col gap-1'
     >
       <span className={className || 'text-h6 !font-normal'}>{children}</span>
       <hr
-        className={` ${footer ? 'h-[1px]' : 'h-[2px]'} inline-block border-none bg-primary transition-all duration-300 ease-linear`}
+        className='inline-block border-none bg-primary transition-all duration-300 ease-linear'
         style={{
+          height: height,
           width: `${underlineWidth}`,
         }}
       />

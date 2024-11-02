@@ -1,8 +1,8 @@
 import { Bricolage_Grotesque } from 'next/font/google'
 import '../globals.css'
 
-import Footer from '@/components/common/Footer'
-import NavBar from '@/components/common/NavBar'
+import Footer from '@/components/Footer'
+import NavBar from '@/components/NavBar'
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],

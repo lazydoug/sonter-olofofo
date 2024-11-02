@@ -5,7 +5,7 @@ import { PortableText } from '@portabletext/react'
 
 import { imgUrl } from '@/helpers/generateImageUrl'
 
-import UnderlineHoverText from './common/UnderlineLinkText'
+import UnderlineHoverText from './UnderlineLinkText'
 
 const RichTextComponents = {
   types: {

@@ -6,46 +6,61 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { motion, useAnimationControls } from 'framer-motion'
-
+import { useRouter } from 'next/navigation'
 import UnderlineLinkText from './UnderlineLinkText'
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchBoxOpen, setIsSearchBoxOpen] = useState(false)
 
+  const router = useRouter()
+
   const socials = [
-    {
-      name: 'x-twitter',
-      url: 'https://x.com/',
-      icon: 'twitter-white.svg',
-      style: 'hover:bg-[#2aa3f0]',
-    },
-    {
-      name: 'facebook',
-      url: 'https://facebook.com/',
-      icon: 'facebook-white.svg',
-      style: 'hover:bg-[#3b5998]',
-    },
-    {
-      name: 'instagram',
-      url: 'https://instagram.com/',
-      icon: 'instagram-white.svg',
-      style:
-        'hover:bg-[linear-gradient(72.44deg,_#FF7A00_11.92%,_#FF0169_51.56%,_#D300C5_85.69%)]',
-    },
-    {
-      name: 'pinterest',
-      url: 'https://pinterest.com/',
-      icon: 'pinterest-white.svg',
-      style: 'hover:bg-[#f83f5a]',
-    },
-    // {
-    //   name: 'mail',
-    //   url: 'mailto:mail@samplemail.com',
-    //   icon: 'send-white.svg',
-    //   style: 'hover:bg-[#e31e24]',
-    // },
-  ]
+      {
+        name: 'x-twitter',
+        url: 'https://x.com/',
+        icon: 'twitter-white.svg',
+        style: 'hover:bg-[#2aa3f0]',
+      },
+      {
+        name: 'facebook',
+        url: 'https://facebook.com/',
+        icon: 'facebook-white.svg',
+        style: 'hover:bg-[#3b5998]',
+      },
+      {
+        name: 'instagram',
+        url: 'https://instagram.com/',
+        icon: 'instagram-white.svg',
+        style:
+          'hover:bg-[linear-gradient(72.44deg,_#FF7A00_11.92%,_#FF0169_51.56%,_#D300C5_85.69%)]',
+      },
+      {
+        name: 'pinterest',
+        url: 'https://pinterest.com/',
+        icon: 'pinterest-white.svg',
+        style: 'hover:bg-[#f83f5a]',
+      },
+      // {
+      //   name: 'mail',
+      //   url: 'mailto:mail@samplemail.com',
+      //   icon: 'send-white.svg',
+      //   style: 'hover:bg-[#e31e24]',
+      // },
+    ],
+    navLinks = [
+      { label: 'Home', href: '/' },
+      { label: 'All Posts', href: '/posts' },
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+    ],
+    categoryLinks = [
+      { label: 'Cars', href: '/cars' },
+      { label: 'Food', href: '/food' },
+      { label: 'Style', href: '/style' },
+      { label: 'Tech', href: '/tech' },
+      { label: 'Travel', href: '/travel' },
+    ]
 
   const navMenuControls = useAnimationControls(),
     navLinksControls = useAnimationControls(),
@@ -90,7 +105,6 @@ const NavBar = () => {
   })
 
   const toggleMenu = () => {
-    console.log("clicked")
     setIsMenuOpen((prev) => !prev)
   }
 
@@ -128,35 +142,28 @@ const NavBar = () => {
           <motion.div
             className='flex items-center gap-4'
             initial='rest'
-            whileHover='hover'
-            animate='rest'
-            variants={{
-              rest: { rotate: 0 },
-              hover: { rotate: 0 },
-            }}
+            whileHover={isMenuOpen ? 'hidden' : 'hover'}
+            whileTap='hidden'
+            animate={isMenuOpen ? 'hidden' : 'rest'}
           >
             {/* Hamburger Icon */}
             <motion.div
               className='z-50 flex w-6 flex-col items-center gap-1'
-              // animate={isMenuOpen ? 'hidden' : 'visible'}
+              transition={{ duration: 0.3 }}
               variants={{
                 hidden: {
                   scale: 0.4,
                   opacity: 0,
-                  transition: { duration: 0.5 },
-                },
-                visible: {
-                  opacity: 1,
-                  scale: 1,
-                  transition: { duration: 0.5 },
                 },
                 rest: {
                   rotate: 45,
-                  transition: { duration: 0.3 },
+                  opacity: 1,
+                  scale: 1,
                 },
                 hover: {
                   rotate: 0,
-                  transition: { duration: 0.3 },
+                  opacity: 1,
+                  scale: 1,
                 },
               }}
             >
@@ -234,42 +241,19 @@ const NavBar = () => {
                 },
               }}
             >
-              <li>
-                <UnderlineLinkText
-                  href='/demo'
-                  className='text-inherit'
-                  onClickHandler={toggleMenu}
-                >
-                  Home
-                </UnderlineLinkText>
-              </li>
-              <li>
-                <UnderlineLinkText
-                  href='/demo/posts'
-                  className='text-inherit'
-                  onClick={toggleMenu}
-                >
-                  Posts
-                </UnderlineLinkText>
-              </li>
-              <li>
-                <UnderlineLinkText
-                  href='/demo/about'
-                  className='text-inherit'
-                  onClick={toggleMenu}
-                >
-                  About
-                </UnderlineLinkText>
-              </li>
-              <li>
-                <UnderlineLinkText
-                  href='/demo/contact'
-                  className='text-inherit'
-                  onClick={toggleMenu}
-                >
-                  Contact
-                </UnderlineLinkText>
-              </li>
+              {navLinks.map(({ label, href }) => {
+                return (
+                  <li key={label} onClick={() => setIsMenuOpen(false)}>
+                    <UnderlineLinkText
+                      href={`/demo${href}`}
+                      className='text-[1.75rem] leading-8 min-[767px]:text-[2.5rem] min-[767px]:leading-10 min-[991px]:text-5xl min-[991px]:leading-10'
+                      underlineBig
+                    >
+                      {label}
+                    </UnderlineLinkText>
+                  </li>
+                )
+              })}
             </motion.ul>
 
             <motion.div
@@ -291,32 +275,19 @@ const NavBar = () => {
               <h4 className='mb-8 text-h4 capitalize min-[479px]:mb-10'>
                 Categories
               </h4>
-              <ul className='space-y-4 text-h6 tracking-2'>
-                <li>
-                  <Link href='/demo/categories/cars' onClick={toggleMenu}>
-                    Cars
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/demo/categories/food' onClick={toggleMenu}>
-                    Food
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/demo/categories/style' onClick={toggleMenu}>
-                    Style
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/demo/categories/tech' onClick={toggleMenu}>
-                    Tech
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/demo/categories/travel' onClick={toggleMenu}>
-                    Travel
-                  </Link>
-                </li>
+              <ul className='space-y-5 text-h6 tracking-2'>
+                {categoryLinks.map(({ label, href }) => {
+                  return (
+                    <li key={label} onClick={() => setIsMenuOpen(false)}>
+                      <UnderlineLinkText
+                        href={`/demo/categories${href}`}
+                        className='leading-none'
+                      >
+                        {label}
+                      </UnderlineLinkText>
+                    </li>
+                  )
+                })}
               </ul>
             </motion.div>
           </div>
@@ -328,16 +299,17 @@ const NavBar = () => {
             variants={{
               hidden: {
                 x: 60,
-                y: '-50%',
                 opacity: 0,
                 transition: { duration: 0.5 },
               },
               visible: {
                 x: 0,
-                y: '-50%',
                 opacity: 1,
                 transition: { duration: 0.5, delay: 0.3 },
               },
+            }}
+            style={{
+              translateY: '-50%',
             }}
           >
             Sonter

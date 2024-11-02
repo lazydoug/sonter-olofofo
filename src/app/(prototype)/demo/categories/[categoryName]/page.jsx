@@ -7,8 +7,8 @@ import FullImageCard from '@/components/FullImageCard'
 import HeroSection from '@/components/HeroSection'
 import InstagramPost from '@/components/InstagramPost'
 import CategoryButton from '@/components/CategoryButton'
-import Pagination from '@/components/common/Pagination'
-import UnderlineLinkText from '@/components/common/UnderlineLinkText'
+import Pagination from '@/components/Pagination'
+import UnderlineLinkText from '@/components/UnderlineLinkText'
 
 import { imgUrl } from '@/helpers/generateImageUrl'
 import {
