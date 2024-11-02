@@ -16,15 +16,17 @@ const Home = async () => {
 
   return (
     <>
-      <HeroSection
-        backgroundImage='/demo/tomasz-zagorski-1396867-unsplash.jpg'
-        header='INTRODUCING OLOFOFO'
-        title='News, Trends & Gossips'
-        subtitle='Some dummy text, ipsum dolor sit amet consectetur adipisicing elit.
-              Perferendis ducimus doloremque officia. Explicabo obcaecati id,
-              neque assumenda debitis distinctio ullam ex numquam nulla ipsum
-              velit. Velit explicabo hic maiores commodi!'
-      />
+      <section>
+        <HeroSection
+          backgroundImage='/demo/tomasz-zagorski-1396867-unsplash.jpg'
+          header='INTRODUCING OLOFOFO'
+          title='News, Trends & Gossips'
+          subtitle='Some dummy text, ipsum dolor sit amet consectetur adipisicing elit.
+                Perferendis ducimus doloremque officia. Explicabo obcaecati id,
+                neque assumenda debitis distinctio ullam ex numquam nulla ipsum
+                velit. Velit explicabo hic maiores commodi!'
+        />
+      </section>
 
       <section className='relative z-10 mx-auto max-w-[1200px] px-4 pb-20 min-[767px]:pb-24 min-[991px]:px-10 min-[991px]:pb-[120px]'>
         <div className='grid grid-cols-6 items-stretch justify-stretch gap-4 py-2'>
