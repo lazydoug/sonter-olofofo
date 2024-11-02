@@ -36,12 +36,14 @@ const PostsPage = async ({ searchParams }) => {
   if (currentPage > numberOfPages) return notFound()
 
   return (
-    <section className='min-h-screen bg-black'>
-      <HeroSection
-        backgroundImage='/demo/tomasz-zagorski-1130739-unsplash.jpg'
-        header='OLOFOFO'
-        title='All Posts'
-      />
+    <>
+      <section >
+        <HeroSection
+          backgroundImage='/demo/tomasz-zagorski-1130739-unsplash.jpg'
+          header='OLOFOFO'
+          title='All Posts'
+        />
+      </section>
 
       <section className='relative z-20 mx-auto flex max-w-[1200px] flex-wrap px-4 pb-20 min-[767px]:pb-24 min-[991px]:px-8 min-[991px]:pb-[120px]'>
         <div className='w-full flex-initial min-[991px]:flex-1'>
@@ -204,7 +206,7 @@ const PostsPage = async ({ searchParams }) => {
           </div>
         </aside>
       </section>
-    </section>
+    </>
   )
 }
 
