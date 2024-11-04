@@ -133,7 +133,7 @@ const NavBar = () => {
     <header
       className={`fixed z-30 w-full min-w-80 bg-gradient-to-b from-black/60 to-transparent p-4 ${isBlurred ? 'backdrop-blur-sm' : 'backdrop-blur-none'} transition-all duration-300 min-[479px]:p-5 min-[767px]:p-8`}
     >
-      <nav className='flex items-center justify-between text-[13px] uppercase leading-5 tracking-[3px]'>
+      <nav className='flex items-center justify-between text-[13px] uppercase leading-5 tracking-[3px] text-white'>
         <div
           className='relative flex cursor-pointer items-center'
           onClick={toggleMenu}
