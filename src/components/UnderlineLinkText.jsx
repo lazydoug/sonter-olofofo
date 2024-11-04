@@ -43,7 +43,7 @@ const UnderlineLinkText = ({
       ref={textContainerRef}
       href={href}
       onClick={onClickHandler}
-      className='flex w-fit flex-col gap-1'
+      className='flex flex-col gap-1'
     >
       <span className={className || 'text-h6 !font-normal'}>{children}</span>
       <hr

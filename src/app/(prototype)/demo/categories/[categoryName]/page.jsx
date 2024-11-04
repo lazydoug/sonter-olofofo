@@ -46,7 +46,7 @@ const SingleCategoryPage = async ({ params, searchParams }) => {
   )
 
   return (
-    <section className='min-h-screen bg-black'>
+    <>
       <HeroSection
         backgroundImage={imgUrl(category.coverImage).url()}
         header='Category'
@@ -214,7 +214,7 @@ const SingleCategoryPage = async ({ params, searchParams }) => {
           </div>
         </aside>
       </section>
-    </section>
+    </>
   )
 }
 

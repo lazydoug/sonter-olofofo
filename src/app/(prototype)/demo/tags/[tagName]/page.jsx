@@ -46,7 +46,7 @@ const SingleTagPage = async ({ params, searchParams }) => {
   )
 
   return (
-    <section className='min-h-screen bg-black'>
+    <>
       <HeroSection
         backgroundImage={imgUrl(tag.coverImage).url()}
         header='All Post Tagged'
@@ -214,7 +214,7 @@ const SingleTagPage = async ({ params, searchParams }) => {
           </div>
         </aside>
       </section>
-    </section>
+    </>
   )
 }
 
