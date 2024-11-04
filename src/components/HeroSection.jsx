@@ -24,7 +24,7 @@ const HeroSection = ({
   const contentOpacity = useTransform(scrollY, [0, 300], [1, 0])
 
   return (
-    <>
+    <section>
       <div className='absolute bottom-0 left-0 right-0 top-0 -z-10 h-screen w-full min-w-80 overflow-hidden'>
         <div className='absolute bottom-0 left-0 right-0 top-0 z-10 bg-gradient-to-b from-[rgba(21,_21,_21,_0.4)] from-30% to-black to-50% min-[479px]:to-80% min-[767px]:to-70% min-[991px]:to-80%'></div>
 
@@ -51,14 +51,16 @@ const HeroSection = ({
       >
         <div className='mx-auto max-w-[800px] text-center'>
           <hgroup>
-            <header className='mb-4 text-[11px] font-semibold uppercase leading-4 tracking-[3px]'>
+            <header
+              className={`mb-4 text-[11px] font-semibold uppercase leading-4 tracking-[3px] ${singlePost && 'flex justify-center'}`}
+            >
               <span>{header}</span>
               {singlePost && (
                 <UnderlineLinkText
                   className='text-inherit'
-                  href={`/categories/${category.toLowerCase()}`}
+                  href={`/demo/categories/${category.toLowerCase()}`}
                 >
-                  {category}
+                  &nbsp;{category}
                 </UnderlineLinkText>
               )}
             </header>
@@ -72,7 +74,7 @@ const HeroSection = ({
           )}
         </div>
       </motion.div>
-    </>
+    </section>
   )
 }
 

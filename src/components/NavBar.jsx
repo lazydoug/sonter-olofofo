@@ -12,8 +12,7 @@ import UnderlineLinkText from './UnderlineLinkText'
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchBoxOpen, setIsSearchBoxOpen] = useState(false)
-
-  const router = useRouter()
+  const [isBlurred, setIsBlurred] = useState(false)
 
   const socials = [
       {
@@ -74,6 +73,8 @@ const NavBar = () => {
     searchFormControls = useAnimationControls(),
     searchBigTextControls = useAnimationControls()
 
+  useEffect(() => {}, [])
+
   useEffect(() => {
     if (isMenuOpen) {
       hamburgerIconControls.start('hidden')
@@ -102,6 +103,22 @@ const NavBar = () => {
       searchFormControls.start('hidden')
       searchBigTextControls.start('hidden')
     }
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const blurThreshold = 200
+
+      if (scrollY > blurThreshold) {
+        setIsBlurred(true)
+      } else {
+        setIsBlurred(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   })
 
   const toggleMenu = () => {
@@ -113,7 +130,9 @@ const NavBar = () => {
   }
 
   return (
-    <header className='fixed z-30 w-full min-w-80 bg-gradient-to-b from-black/60 to-transparent p-4 min-[479px]:p-5 min-[767px]:p-8'>
+    <header
+      className={`fixed z-30 w-full min-w-80 bg-gradient-to-b from-black/60 to-transparent p-4 ${isBlurred ? 'backdrop-blur-sm' : 'backdrop-blur-none'} transition-all duration-300 min-[479px]:p-5 min-[767px]:p-8`}
+    >
       <nav className='flex items-center justify-between text-[13px] uppercase leading-5 tracking-[3px]'>
         <div
           className='relative flex cursor-pointer items-center'
