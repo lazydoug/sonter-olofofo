@@ -41,7 +41,7 @@ const HeroSection = ({
       </div>
 
       <motion.div
-        className='px-4 pb-20 pt-[120px] min-[767px]:pb-28 min-[767px]:pt-40 min-[991px]:min-h-[520px] min-[991px]:pb-40 min-[991px]:pt-[200px]'
+        className='px-4 pb-20 pt-[120px] text-white min-[767px]:pb-28 min-[767px]:pt-40 min-[991px]:min-h-[520px] min-[991px]:pb-40 min-[991px]:pt-[200px]'
         style={{
           y: contentTranslateY,
           scale: contentScale,
