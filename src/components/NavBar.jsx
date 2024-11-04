@@ -106,7 +106,7 @@ const NavBar = () => {
 
     const handleScroll = () => {
       const scrollY = window.scrollY
-      const blurThreshold = 200 // Adjust this value to your preferred scroll position
+      const blurThreshold = 200
 
       if (scrollY > blurThreshold) {
         setIsBlurred(true)
