@@ -29,7 +29,7 @@ const SinglePostPage = async ({ params: { slug } }) => {
         backgroundImage={imgUrl(post.mainImage).url()}
       />
 
-      <section>
+      <section className='max-[991px]:relative'>
         <div className='absolute bottom-0 right-5 z-20 flex min-[991px]:fixed min-[991px]:bottom-auto min-[991px]:right-0 min-[991px]:top-1/2 min-[991px]:-translate-y-1/2 min-[991px]:flex-col'>
           <Link
             href={'https://x.com'}
