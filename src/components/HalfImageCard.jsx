@@ -85,7 +85,7 @@ const HalfImageCard = ({
 
   return (
     <div ref={halfImageCard} className={className}>
-      <Link href={`/demo/posts/${slug}`}>
+      <Link href={`/posts/${slug}`}>
         <div className='relative'>
           {/* featured tag */}
           {isFeatured && (
@@ -97,7 +97,7 @@ const HalfImageCard = ({
               }}
             >
               <Image
-                src='/demo/zap-white.svg'
+                src='/assets/zap-white.svg'
                 alt='zap-icon'
                 width={16}
                 height={16}

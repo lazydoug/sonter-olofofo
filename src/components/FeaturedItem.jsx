@@ -38,7 +38,7 @@ const FeaturedItem = ({ title, slug, date, category, thumbnail }) => {
   return (
     <div className='flex gap-5'>
       <Link
-        href={`/demo/posts/${slug}`}
+        href={`/posts/${slug}`}
         className='relative shrink-0 overflow-hidden rounded-xs'
       >
         <div
@@ -52,7 +52,7 @@ const FeaturedItem = ({ title, slug, date, category, thumbnail }) => {
 
         <div className='absolute right-0 top-0 z-10 flex items-center rounded-bl-xs rounded-tr-xs bg-primary p-1'>
           <Image
-            src='/demo/zap-white.svg'
+            src='/assets/zap-white.svg'
             alt='zap-icon'
             width={12}
             height={12}
@@ -61,7 +61,7 @@ const FeaturedItem = ({ title, slug, date, category, thumbnail }) => {
       </Link>
 
       <div>
-        <Link href={`/demo/posts/${slug}`} className='hover:underline'>
+        <Link href={`/posts/${slug}`} className='hover:underline'>
           <h6 className='mb-1 mt-[1px] line-clamp-3 text-h6 capitalize'>
             {title}
           </h6>
@@ -71,7 +71,7 @@ const FeaturedItem = ({ title, slug, date, category, thumbnail }) => {
           <span>&nbsp;in&nbsp;</span>
 
           <Link
-            href={`/demo/categories/${category.toLowerCase()}`}
+            href={`/categories/${category.toLowerCase()}`}
             className='hover:underline'
           >
             {category}

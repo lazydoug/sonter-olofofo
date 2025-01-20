@@ -35,7 +35,7 @@ const Footer = () => {
             className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[#2aa3f0]'
           >
             <Image
-              src='/demo/twitter-white.svg'
+              src='/assets/twitter-white.svg'
               alt='x-twitter-icon'
               width={16}
               height={16}
@@ -47,7 +47,7 @@ const Footer = () => {
             className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[#3b5998]'
           >
             <Image
-              src='/demo/facebook-white.svg'
+              src='/assets/facebook-white.svg'
               alt='facebook-icon'
               width={16}
               height={16}
@@ -59,7 +59,7 @@ const Footer = () => {
             className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-primary'
           >
             <Image
-              src='/demo/instagram-white.svg'
+              src='/assets/instagram-white.svg'
               alt='instagram-icon'
               width={16}
               height={16}
@@ -71,7 +71,7 @@ const Footer = () => {
             className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[#f83f5a]'
           >
             <Image
-              src='/demo/pinterest-white.svg'
+              src='/assets/pinterest-white.svg'
               alt='pinterest-icon'
               width={16}
               height={16}
@@ -86,7 +86,7 @@ const Footer = () => {
           <ul className='mb-5 flex flex-wrap justify-center gap-x-5 gap-y-3 min-[991px]:justify-end'>
             <li>
               <Link
-                href='/demo/'
+                href='/'
                 className='text-h6 font-normal text-white/60 transition-colors duration-300 ease-in-out hover:text-white'
               >
                 Home
@@ -94,45 +94,10 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href='/demo/posts'
+                href='/posts'
                 className='text-h6 font-normal text-white/60 transition-colors duration-300 ease-in-out hover:text-white'
               >
                 Posts
-              </Link>
-            </li>
-            <li>
-              <Link
-                href='/demo/about/'
-                className='text-h6 font-normal text-white/60 transition-colors duration-300 ease-in-out hover:text-white'
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href=''
-                className='text-h6 font-normal text-white/60 transition-colors duration-300 ease-in-out hover:text-white'
-              >
-                Sit
-              </Link>
-            </li>
-            <li>
-              <Link
-                href=''
-                className='text-h6 font-normal text-white/60 transition-colors duration-300 ease-in-out hover:text-white'
-              >
-                Amet
-              </Link>
-            </li>
-          </ul>
-
-          <ul className='flex justify-center gap-4 min-[991px]:justify-end'>
-            <li>
-              <Link
-                href='/contact'
-                className='text-xs text-white/60 transition-colors duration-300 ease-in-out hover:text-white'
-              >
-                Contact
               </Link>
             </li>
             <li>
@@ -141,6 +106,14 @@ const Footer = () => {
                 className='text-xs text-white/60 transition-colors duration-300 ease-in-out hover:text-white'
               >
                 About
+              </Link>
+            </li>
+            <li>
+              <Link
+                href='/contact'
+                className='text-xs text-white/60 transition-colors duration-300 ease-in-out hover:text-white'
+              >
+                Contact
               </Link>
             </li>
           </ul>

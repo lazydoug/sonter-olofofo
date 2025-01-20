@@ -24,7 +24,7 @@ const RelatedPosts = ({ posts }) => {
       </div>
 
       <Link
-        href='/demo/posts'
+        href='/posts'
         className='mt-5 flex h-16 items-center justify-center rounded-xs border border-white/30 text-[14px] font-medium leading-4 tracking-2 transition-all duration-[400ms] hover:border-transparent hover:bg-primary min-[767px]:h-[72px] min-[991px]:h-20 min-[991px]:text-btn-lg'
       >
         SEE ALL POSTS

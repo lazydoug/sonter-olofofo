@@ -264,7 +264,7 @@ const NavBar = () => {
                 return (
                   <li key={label} onClick={() => setIsMenuOpen(false)}>
                     <UnderlineLinkText
-                      href={`/demo${href}`}
+                      href={href}
                       className='text-[1.75rem] leading-8 min-[767px]:text-[2.5rem] min-[767px]:leading-10 min-[991px]:text-5xl min-[991px]:leading-10'
                       underlineBig
                     >
@@ -299,7 +299,7 @@ const NavBar = () => {
                   return (
                     <li key={label} onClick={() => setIsMenuOpen(false)}>
                       <UnderlineLinkText
-                        href={`/demo/categories${href}`}
+                        href={`/categories${href}`}
                         className='leading-none'
                       >
                         {label}
@@ -337,7 +337,7 @@ const NavBar = () => {
 
         <Link
           className='text-h5 font-semibold tracking-2 min-[767px]:text-h3'
-          href='/demo'
+          href='/'
         >
           Sonter Olofofo
         </Link>

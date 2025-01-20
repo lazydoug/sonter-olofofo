@@ -64,7 +64,7 @@ const UnderConstruction = () => {
         <div className='flex flex-col gap-4 lg:flex-row lg:gap-20'>
           <div>
             <p className='text-[#dbdbdb] text-[20px] mb-3'>
-              Come back later for our big <Link href={'/demo'} className='hover:opacity-10 hover:underline'>reveal</Link>. We promise, it&apos;ll be
+              Come back later for our big <Link href={'/assets'} className='hover:opacity-10 hover:underline'>reveal</Link>. We promise, it&apos;ll be
               worth it.
             </p>
 

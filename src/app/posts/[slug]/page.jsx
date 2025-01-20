@@ -36,7 +36,7 @@ const SinglePostPage = async ({ params: { slug } }) => {
             className='bg-grey-100 p-3 hover:bg-[#2aa3f0]'
           >
             <div className='relative h-[14px] w-[14px] min-[991px]:h-[18px] min-[991px]:w-[18px]'>
-              <Image src={'/demo/twitter-white.svg'} alt='twitter-icon' fill />
+              <Image src={'/assets/twitter-white.svg'} alt='twitter-icon' fill />
             </div>
           </Link>
 
@@ -46,7 +46,7 @@ const SinglePostPage = async ({ params: { slug } }) => {
           >
             <div className='relative h-[14px] w-[14px] min-[991px]:h-[18px] min-[991px]:w-[18px]'>
               <Image
-                src={'/demo/facebook-white.svg'}
+                src={'/assets/facebook-white.svg'}
                 alt='facebook-icon'
                 fill
               />
@@ -58,7 +58,7 @@ const SinglePostPage = async ({ params: { slug } }) => {
           >
             <div className='relative h-[14px] w-[14px] min-[991px]:h-[18px] min-[991px]:w-[18px]'>
               <Image
-                src={'/demo/pinterest-white.svg'}
+                src={'/assets/pinterest-white.svg'}
                 alt='pinterest-icon'
                 fill
               />
@@ -70,7 +70,7 @@ const SinglePostPage = async ({ params: { slug } }) => {
           >
             <div className='relative h-[14px] w-[14px] min-[991px]:h-[18px] min-[991px]:w-[18px]'>
               <Image
-                src={'/demo/instagram-white.svg'}
+                src={'/assets/instagram-white.svg'}
                 alt='instagram-icon'
                 fill
               />

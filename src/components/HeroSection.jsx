@@ -58,7 +58,7 @@ const HeroSection = ({
               {singlePost && (
                 <UnderlineLinkText
                   className='text-inherit'
-                  href={`/demo/categories/${category.toLowerCase()}`}
+                  href={`/categories/${category.toLowerCase()}`}
                 >
                   &nbsp;{category}
                 </UnderlineLinkText>
