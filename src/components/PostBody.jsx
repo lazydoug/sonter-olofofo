@@ -73,7 +73,7 @@ const PostBody = ({ article, tags }) => {
         {tags.map(({ _id, title }) => (
           <UnderlineHoverText
             key={_id}
-            href={`/demo/tags/${title.toLowerCase()}`}
+            href={`/tags/${title.toLowerCase()}`}
           >
             {<span className='text-grey-300'>#</span>}
             {title}

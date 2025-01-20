@@ -101,7 +101,7 @@ const FullImageCard = ({
 
   return (
     <div ref={fullImageCard} className={className}>
-      <Link href={`/demo/posts/${slug}`}>
+      <Link href={`/posts/${slug}`}>
         <div className={`${cardStyle} relative`}>
           {/* featured tag */}
           {isFeatured && (
@@ -113,7 +113,7 @@ const FullImageCard = ({
               }}
             >
               <Image
-                src='/demo/zap-white.svg'
+                src='/assets/zap-white.svg'
                 alt='zap-icon'
                 width={16}
                 height={16}

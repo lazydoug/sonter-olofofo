@@ -17,7 +17,7 @@ const Home = async () => {
   return (
     <>
       <HeroSection
-        backgroundImage='/demo/tomasz-zagorski-1396867-unsplash.jpg'
+        backgroundImage='/assets/tomasz-zagorski-1396867-unsplash.jpg'
         header='INTRODUCING OLOFOFO'
         title='News, Trends & Gossips'
         subtitle='Some dummy text, ipsum dolor sit amet consectetur adipisicing elit.
@@ -99,7 +99,7 @@ const Home = async () => {
             >
               <Image
                 className='mb-4'
-                src='/demo/twitter-white.svg'
+                src='/assets/twitter-white.svg'
                 alt='x-twitter-icon'
                 width={40}
                 height={40}
@@ -114,7 +114,7 @@ const Home = async () => {
             >
               <Image
                 className='mb-4'
-                src='/demo/facebook-white.svg'
+                src='/assets/facebook-white.svg'
                 alt='facebook-icon'
                 width={40}
                 height={40}
@@ -159,7 +159,7 @@ const Home = async () => {
         </div>
 
         <Link
-          href='/demo/posts'
+          href='/posts'
           className='mt-5 flex h-16 items-center justify-center rounded-xs border border-white/30 text-[14px] font-medium leading-4 tracking-2 transition-all duration-[400ms] hover:border-transparent hover:bg-primary min-[767px]:h-[72px] min-[991px]:h-20 min-[991px]:text-btn-lg'
         >
           SEE MORE POSTS

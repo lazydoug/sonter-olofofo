@@ -12,35 +12,45 @@ import UnderlineLinkText from '@/components/UnderlineLinkText'
 
 import { imgUrl } from '@/helpers/generateImageUrl'
 import {
-  getAllPosts,
-  getCategories,
+  getPostsByCategory,
   getFeaturedPosts,
+  getCategories,
   getTags,
 } from '@/helpers/sanityClient'
 
-const PostsPage = async ({ searchParams }) => {
-  const allPosts = await getAllPosts()
+const SingleCategoryPage = async ({ params, searchParams }) => {
+  /**
+   * Fetch posts by category
+   * Return not found if current page exceeds available pages (out-of-range pages)
+   * Render posts
+   */
+
+  const categoryName = params.categoryName
+  const { category, posts } = await getPostsByCategory(categoryName)
+
+  if (!category) return notFound()
+
   const featuredPosts = await getFeaturedPosts()
   const categories = await getCategories()
   const tags = await getTags()
 
   const numberOfPostsPerPage = 5
-  const numberOfPages = Math.ceil(allPosts.length / numberOfPostsPerPage)
+  const numberOfPages = Math.ceil(posts.length / numberOfPostsPerPage)
   const currentPage = parseInt(searchParams.page) || 1
 
-  const slicedPosts = allPosts.slice(
+  if (currentPage > numberOfPages) return notFound() // Handle out-of-range pages
+
+  const slicedPosts = posts.slice(
     (currentPage - 1) * numberOfPostsPerPage,
     currentPage * numberOfPostsPerPage
   )
 
-  if (currentPage > numberOfPages) return notFound()
-
   return (
     <>
       <HeroSection
-        backgroundImage='/demo/tomasz-zagorski-1130739-unsplash.jpg'
-        header='OLOFOFO'
-        title='All Posts'
+        backgroundImage={imgUrl(category.coverImage).url()}
+        header='Category'
+        title={category.title}
       />
 
       <section className='relative z-20 mx-auto flex max-w-[1200px] flex-wrap px-4 pb-20 min-[767px]:pb-24 min-[991px]:px-8 min-[991px]:pb-[120px]'>
@@ -131,7 +141,7 @@ const PostsPage = async ({ searchParams }) => {
                 className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[#2aa3f0]'
               >
                 <Image
-                  src='/demo/twitter-white.svg'
+                  src='/assets/twitter-white.svg'
                   alt='x-twitter-icon'
                   width={16}
                   height={16}
@@ -143,7 +153,7 @@ const PostsPage = async ({ searchParams }) => {
                 className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[#3b5998]'
               >
                 <Image
-                  src='/demo/facebook-white.svg'
+                  src='/assets/facebook-white.svg'
                   alt='facebook-icon'
                   width={16}
                   height={16}
@@ -155,7 +165,7 @@ const PostsPage = async ({ searchParams }) => {
                 className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[linear-gradient(72.44deg,_#FF7A00_11.92%,_#FF0169_51.56%,_#D300C5_85.69%)]'
               >
                 <Image
-                  src='/demo/instagram-white.svg'
+                  src='/assets/instagram-white.svg'
                   alt='instagram-icon'
                   width={16}
                   height={16}
@@ -167,7 +177,7 @@ const PostsPage = async ({ searchParams }) => {
                 className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[#f83f5a]'
               >
                 <Image
-                  src='/demo/pinterest-white.svg'
+                  src='/assets/pinterest-white.svg'
                   alt='pinterest-icon'
                   width={16}
                   height={16}
@@ -179,7 +189,7 @@ const PostsPage = async ({ searchParams }) => {
                 className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[#e31e24]'
               >
                 <Image
-                  src='/demo/send-white.svg'
+                  src='/assets/send-white.svg'
                   alt='mail-icon'
                   width={16}
                   height={16}
@@ -208,4 +218,4 @@ const PostsPage = async ({ searchParams }) => {
   )
 }
 
-export default PostsPage
+export default SingleCategoryPage

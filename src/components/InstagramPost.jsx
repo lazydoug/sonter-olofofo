@@ -43,7 +43,7 @@ const InstagramPost = ({ imageUrl, postUrl }) => {
           fill
         />
         <div
-          className='absolute left-1/2 top-1/2 h-1/4 min-h-8 w-1/4 min-w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary bg-[url("/demo/instagram-white.svg")] bg-[length:44%] bg-center bg-no-repeat transition-all duration-500'
+          className='absolute left-1/2 top-1/2 h-1/4 min-h-8 w-1/4 min-w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary bg-[url("/assets/instagram-white.svg")] bg-[length:44%] bg-center bg-no-repeat transition-all duration-500'
           style={{ opacity: `${opacity}`, scale: `${imageScale}` }}
         ></div>
       </div>

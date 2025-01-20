@@ -12,7 +12,7 @@ const Pagination = ({ currentPage, totalPages }) => {
           className='absolute left-0 flex items-center gap-2 transition-colors duration-300 hover:text-primary'
         >
           <Image
-            src='/demo/left-white.svg'
+            src='/assets/left-white.svg'
             alt='left_arrow'
             width={18}
             height={18}
@@ -32,7 +32,7 @@ const Pagination = ({ currentPage, totalPages }) => {
         >
           <span className='text-btn-md uppercase tracking-2'>Next</span>
           <Image
-            src='/demo/right-white.svg'
+            src='/assets/right-white.svg'
             alt='right_arrow'
             width={18}
             height={18}

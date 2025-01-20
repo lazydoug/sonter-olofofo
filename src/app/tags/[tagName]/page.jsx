@@ -120,7 +120,7 @@ const SingleTagPage = async ({ params, searchParams }) => {
               {tags.map(({ _id, title }) => (
                 <UnderlineLinkText
                   key={_id}
-                  href={`/demo/tags/${title.toLowerCase()}`}
+                  href={`/tags/${title.toLowerCase()}`}
                 >{`#${title}`}</UnderlineLinkText>
               ))}
             </div>
@@ -141,7 +141,7 @@ const SingleTagPage = async ({ params, searchParams }) => {
                 className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[#2aa3f0]'
               >
                 <Image
-                  src='/demo/twitter-white.svg'
+                  src='/assets/twitter-white.svg'
                   alt='x-twitter-icon'
                   width={16}
                   height={16}
@@ -153,7 +153,7 @@ const SingleTagPage = async ({ params, searchParams }) => {
                 className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[#3b5998]'
               >
                 <Image
-                  src='/demo/facebook-white.svg'
+                  src='/assets/facebook-white.svg'
                   alt='facebook-icon'
                   width={16}
                   height={16}
@@ -165,7 +165,7 @@ const SingleTagPage = async ({ params, searchParams }) => {
                 className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[linear-gradient(72.44deg,_#FF7A00_11.92%,_#FF0169_51.56%,_#D300C5_85.69%)]'
               >
                 <Image
-                  src='/demo/instagram-white.svg'
+                  src='/assets/instagram-white.svg'
                   alt='instagram-icon'
                   width={16}
                   height={16}
@@ -177,7 +177,7 @@ const SingleTagPage = async ({ params, searchParams }) => {
                 className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[#f83f5a]'
               >
                 <Image
-                  src='/demo/pinterest-white.svg'
+                  src='/assets/pinterest-white.svg'
                   alt='pinterest-icon'
                   width={16}
                   height={16}
@@ -189,7 +189,7 @@ const SingleTagPage = async ({ params, searchParams }) => {
                 className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[#e31e24]'
               >
                 <Image
-                  src='/demo/send-white.svg'
+                  src='/assets/send-white.svg'
                   alt='mail-icon'
                   width={16}
                   height={16}
