@@ -1,5 +1,5 @@
 import { Bricolage_Grotesque } from 'next/font/google'
-import './globals.css'
+import '../globals.css'
 
 import Footer from '@/components/Footer'
 import NavBar from '@/components/NavBar'
