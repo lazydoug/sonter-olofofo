@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
+
 import UnderlineLinkText from './UnderlineLinkText'
 
 const HeroSection = ({
@@ -10,6 +11,7 @@ const HeroSection = ({
   subtitle,
   singlePost,
   category,
+  verifiedArtist,
 }) => {
   const { scrollY } = useScroll() // Get scroll position
 
@@ -41,7 +43,9 @@ const HeroSection = ({
       </div>
 
       <motion.div
-        className='px-4 pb-20 pt-[120px] text-white min-[767px]:pb-28 min-[767px]:pt-40 min-[991px]:min-h-[520px] min-[991px]:pb-40 min-[991px]:pt-[200px]'
+        className={`px-4 pb-20 pt-[120px] text-white min-[767px]:pb-28 min-[767px]:pt-40 min-[991px]:min-h-[520px] min-[991px]:pb-40 min-[991px]:pt-[200px] ${
+          title == 'Music' && 'min-[479px]:pb-40 min-[479px]:pt-[200px]'
+        }`}
         style={{
           y: contentTranslateY,
           scale: contentScale,
@@ -64,8 +68,13 @@ const HeroSection = ({
                 </UnderlineLinkText>
               )}
             </header>
-            <h1 className='mb-6 mt-2 text-h2 capitalize min-[767px]:text-[40px] min-[767px]:leading-[48px] min-[991px]:text-h1'>
+            <h1 className='relative mb-6 mt-2 text-h2 capitalize min-[767px]:text-[40px] min-[767px]:leading-[48px] min-[991px]:text-h1'>
               {title}
+              {verifiedArtist && (
+                <span className='absolute top-1/2 ml-2 inline-block w-5 -translate-y-1/2 rounded-full bg-blue-500 text-sm font-bold'>
+                  ☆
+                </span>
+              )}
             </h1>
           </hgroup>
           <hr className='mx-auto w-[88px] border-2 border-white min-[767px]:w-[120px]' />

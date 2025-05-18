@@ -56,7 +56,7 @@ const Footer = () => {
 
           <Link
             href='https://instagram.com/'
-            className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-primary'
+            className='rounded-full bg-white/[0.08] p-[10px] transition-colors duration-300 ease-in-out hover:bg-[linear-gradient(72.44deg,_#FF7A00_11.92%,_#FF0169_51.56%,_#D300C5_85.69%)]'
           >
             <Image
               src='/assets/instagram-white.svg'
