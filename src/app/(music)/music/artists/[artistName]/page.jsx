@@ -188,20 +188,20 @@ const ArtistPage = () => {
           >
             <p className='absolute bottom-5 mx-5 line-clamp-3 text-ellipsis'>
               With his fusion of dancehall, reggae, Afrobeat, and pop, Burna Boy
-              is one of Nigeria's best-known stars. The LeriQ-produced 2012
-              single "Like to Party" proved to be his breakout track and paved
-              the way for his full-length debut, L.I.F.E, a year later. Over the
-              next five years, Burna released two more albums and collaborated
-              with a variety of artists, from and to and . His international
-              exposure widened with 2018's Outside, which hit number three on
-              the Billboard Reggae chart and won the Nigeria Entertainment Award
-              for Album of the Year. 2019's African Giant and 2020's Twice as
-              Tall were both widely acclaimed and charted in several countries.
-              After becoming the first Nigerian to headline a show at Madison
-              Square Garden, he released his hit sixth album, Love, Damini, in
-              2022, followed a year later by the Grammy-nominated I Told
-              Them.... The single "Bundle by Bundle" teased his 2025 full-length
-              No Sign of Weakness.
+              is one of Nigeria&apos;s best-known stars. The LeriQ-produced 2012
+              single &ldquo;Like to Party&rdquo; proved to be his breakout track
+              and paved the way for his full-length debut, L.I.F.E, a year
+              later. Over the next five years, Burna released two more albums
+              and collaborated with a variety of artists, from and to and . His
+              international exposure widened with 2018&apos;s Outside, which hit
+              number three on the Billboard Reggae chart and won the Nigeria
+              Entertainment Award for Album of the Year. 2019&apos;s African
+              Giant and 2020&apos;s Twice as Tall were both widely acclaimed and
+              charted in several countries. After becoming the first Nigerian to
+              headline a show at Madison Square Garden, he released his hit
+              sixth album, Love, Damini, in 2022, followed a year later by the
+              Grammy-nominated I Told Them.... The single &ldquo;Bundle by
+              Bundle&rdquo; teased his 2025 full-length No Sign of Weakness.
             </p>
           </div>
         </section>
